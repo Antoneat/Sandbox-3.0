@@ -18,10 +18,21 @@ public class PlayerDmg : MonoBehaviour
         actualvida = maxVida;
     }
 
-    // Update is called once per frame
     void Update()
     {
-       
+        if (actualvida <= 0)
+        {
+            Dead();
+        }
+    }
+
+    public void GainLife(float life) => actualvida += life;
+
+    public void LoseLife(float dmg) => actualvida -= dmg;
+
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -29,9 +40,7 @@ public class PlayerDmg : MonoBehaviour
 
         if (collider.gameObject.CompareTag("AtkBomb"))
         {
-
-          actualvida -= 0.25f * dmgC.dmgMultiplier;
-
+            actualvida -= 0.25f * dmgC.dmgMultiplier;
         }
 
     }

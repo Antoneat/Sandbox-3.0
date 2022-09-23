@@ -3,12 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - AtkBomb
+  - Bombita
+  - Enemigo
+  - MordiscoEnemy1
+  - DetectorBuscador
+  - DetectorBicho
+  - DetectorBichoOUT
+  - DetectorBuscadorOUT
+  - Buscador
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

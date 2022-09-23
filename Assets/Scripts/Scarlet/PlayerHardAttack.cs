@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class PlayerHardAttack : MonoBehaviour
 {
-    // public Animator anim;
+    public Animator anim;
     public BoxCollider armaCollider;
+    public PlayerAttackCombo playerAttackCombo;
 
-    [SerializeField] private int combo;
+    public int hardCombo;
+    public bool hardAttacking;
 
-    //public AudioSource audio;
+    // public AudioSource audio;
     // public AudioClip[] sonido;
 
     void Start()
     {
-        // anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+        playerAttackCombo = GetComponent<PlayerAttackCombo>();
         // audio = GetComponent<AudioSouce>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        HardCombo();
+    }
+
+    public void HardCombo()
+    {
+        if (Input.GetKeyDown(KeyCode.K) && !hardAttacking && !playerAttackCombo.attacking)
         {
-            // anim.SetTrigger("PrimerAtaqueFuerte" + combo);
+            hardAttacking = true;
+            playerAttackCombo.combo = 0;
+            anim.SetTrigger("AtaqueFuerte" + hardCombo);
             // audio.clip = sonido[combo];
             // audio.Play();
             armaCollider.enabled = true;
@@ -31,15 +41,17 @@ public class PlayerHardAttack : MonoBehaviour
 
     public void HardAttacking()
     {
-        Debug.Log("Atacando");
-        armaCollider.enabled = true;
-        if (combo < 3) combo++;
+        Debug.Log("AtacandoHARD");
+        hardAttacking = false;
+        //armaCollider.enabled = true;
+        if (hardCombo < 3) hardCombo++;
     }
 
     public void AfterHardAttacking()
     {
-        Debug.Log("Termino de atacar");
-        armaCollider.enabled = false;
-        combo = 0;
+        Debug.Log("Termino de atacarHARD");
+        hardAttacking = false;
+        //armaCollider.enabled = false;
+        hardCombo = 0;
     }
 }

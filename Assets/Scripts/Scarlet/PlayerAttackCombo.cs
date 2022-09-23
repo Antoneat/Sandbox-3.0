@@ -4,42 +4,54 @@ using UnityEngine;
 
 public class PlayerAttackCombo : MonoBehaviour
 {
-    // public Animator anim;
+    public Animator anim;
     public BoxCollider armaCollider;
+    public PlayerHardAttack playerHardAttack;
 
-    [SerializeField] private int combo;
+    public int combo;
+    public bool attacking;
 
-    //public AudioSource audio;
+    // public AudioSource audioSourse;
     // public AudioClip[] sonido;
 
     void Start()
     {
-        // anim = GetCompenent<Animator>();
-        // audio = GetComponent<AudioSouce>();
+        anim = GetComponent<Animator>();
+        playerHardAttack = GetComponent<PlayerHardAttack>();
+        // audioSourse = GetComponent<AudioSouce>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J))
+        Combo();
+    }
+
+    public void Combo()
+    {
+        if (Input.GetKeyDown(KeyCode.J) && !attacking && !playerHardAttack.hardAttacking)
         {
-            // anim.SetTrigger("PrimerAtaque" + combo);
+            attacking = true;
+            playerHardAttack.hardCombo = 0;
+            anim.SetTrigger("Ataque" + combo);
             // audio.clip = sonido[combo];
             // audio.Play();
-            armaCollider.enabled = true;
+            // armaCollider.enabled = true;
         }
     }
 
     public void Attacking()
     {
         Debug.Log("Atacando");
-        armaCollider.enabled = true;
+        attacking = false;
+        // armaCollider.enabled = true;
         if (combo < 3) combo++;
     }
 
     public void AfterAttacking()
     {
         Debug.Log("Termino de atacar");
-        armaCollider.enabled = false;
+        attacking = false;
+        // armaCollider.enabled = false;
         combo = 0;
     }
 }
