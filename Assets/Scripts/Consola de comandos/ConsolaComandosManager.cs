@@ -5,12 +5,7 @@ using UnityEngine;
 public class ConsolaComandosManager : MonoBehaviour
 {
 
-    public GameObject panelComandos, buttonsPrincipal, panelCameraConfig;
-
-    void Start()
-    {
-        
-    }
+    public GameObject panelComandos, buttonsPrincipal, panelPlayerConfig, panelCameraConfig;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +21,22 @@ public class ConsolaComandosManager : MonoBehaviour
         panelComandos.SetActive(false);
     }
 
+    #region Player
+    public void OpenPlayerConfig()
+    {
+        panelPlayerConfig.SetActive(true);
+        buttonsPrincipal.SetActive(false);
+    }
+    public void ClosePlayerConfig()
+    {
+        panelCameraConfig.SetActive(false);
+        buttonsPrincipal.SetActive(true);
+
+    }
+
+    #endregion
+
+    #region Camera
     public void OpenCameraConfig()
     {
         panelCameraConfig.SetActive(true);
@@ -37,4 +48,6 @@ public class ConsolaComandosManager : MonoBehaviour
         buttonsPrincipal.SetActive(true);
 
     }
+
+    #endregion
 }

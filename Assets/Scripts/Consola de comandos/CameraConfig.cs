@@ -30,9 +30,9 @@ public class CameraConfig : MonoBehaviour
         //cameraTransform = GetComponent<Transform>();
         //mainCamera = GetComponent<Camera>();
 
-        text_X.text = "X:" + cameraTransform.position.x;
-        text_Y.text = "Y:" + cameraTransform.position.y;
-        text_Z.text = "Z:" + cameraTransform.position.z;
+        text_X.text = "X:" + cameraTransform.eulerAngles.x;
+        text_Y.text = "Y:" + cameraTransform.eulerAngles.y;
+        text_Z.text = "Z:" + cameraTransform.eulerAngles.z;
 
         text_FOV.text = "FOV:" + cinemachineVirtualCamera.m_Lens.FieldOfView;
     }
@@ -50,7 +50,7 @@ public class CameraConfig : MonoBehaviour
     public void ChangePosY(string posY)
     {
         int posYNew = Int32.Parse(posY);
-        x = posYNew;
+        y = posYNew;
 
         text_Y.text = "Y:" + posY;
 
@@ -60,7 +60,7 @@ public class CameraConfig : MonoBehaviour
     public void ChangePosZ(string posZ)
     {
         int posZNew = Int32.Parse(posZ);
-        x = posZNew;
+        z = posZNew;
 
         text_Z.text = "Z:" + posZ;
 
