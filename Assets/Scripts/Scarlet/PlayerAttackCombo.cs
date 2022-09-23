@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerAttackCombo : MonoBehaviour
 {
     public Animator anim;
-    public BoxCollider armaCollider;
+    public BoxCollider armaCollider1;
+    public BoxCollider armaCollider2;
     public PlayerHardAttack playerHardAttack;
 
     public int combo;
@@ -35,7 +36,6 @@ public class PlayerAttackCombo : MonoBehaviour
             anim.SetTrigger("Ataque" + combo);
             // audio.clip = sonido[combo];
             // audio.Play();
-            // armaCollider.enabled = true;
         }
     }
 
@@ -43,7 +43,8 @@ public class PlayerAttackCombo : MonoBehaviour
     {
         Debug.Log("Atacando");
         attacking = false;
-        // armaCollider.enabled = true;
+        armaCollider1.enabled = true;
+        armaCollider2.enabled = true;
         if (combo < 3) combo++;
     }
 
@@ -51,7 +52,8 @@ public class PlayerAttackCombo : MonoBehaviour
     {
         Debug.Log("Termino de atacar");
         attacking = false;
-        // armaCollider.enabled = false;
+        armaCollider1.enabled = false;
+        armaCollider2.enabled = true;
         combo = 0;
     }
 }

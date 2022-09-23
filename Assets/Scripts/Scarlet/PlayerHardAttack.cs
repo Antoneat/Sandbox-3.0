@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerHardAttack : MonoBehaviour
 {
     public Animator anim;
-    public BoxCollider armaCollider;
+    public BoxCollider armaCollider1;
+    public BoxCollider armaCollider2;
     public PlayerAttackCombo playerAttackCombo;
 
     public int hardCombo;
@@ -35,7 +36,6 @@ public class PlayerHardAttack : MonoBehaviour
             anim.SetTrigger("AtaqueFuerte" + hardCombo);
             // audio.clip = sonido[combo];
             // audio.Play();
-            armaCollider.enabled = true;
         }
     }
 
@@ -43,7 +43,8 @@ public class PlayerHardAttack : MonoBehaviour
     {
         Debug.Log("AtacandoHARD");
         hardAttacking = false;
-        //armaCollider.enabled = true;
+        armaCollider1.enabled = true;
+        armaCollider2.enabled = true;
         if (hardCombo < 3) hardCombo++;
     }
 
@@ -51,7 +52,8 @@ public class PlayerHardAttack : MonoBehaviour
     {
         Debug.Log("Termino de atacarHARD");
         hardAttacking = false;
-        //armaCollider.enabled = false;
+        armaCollider1.enabled = true;
+        armaCollider2.enabled = true;
         hardCombo = 0;
     }
 }
