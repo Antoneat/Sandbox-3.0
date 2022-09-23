@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DmgController : MonoBehaviour
 {
-    private Player plyr;
+    private PlayerDmg plyrDMG;
     private PlayerDash plyrDash;
 
     private BombDmg bombdmg;
@@ -19,7 +19,7 @@ public class DmgController : MonoBehaviour
 
     void Start()
     {
-        plyr = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        plyrDMG = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
         plyrDash = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDash>();
 
 
@@ -51,12 +51,13 @@ public class DmgController : MonoBehaviour
         }
     }
 
+
     public void BuscadorDAÑO()
     {
         if (dogC.ataco == true)
         {
 
-            plyr.actualvida -= 1.75f;
+            plyrDMG.actualvida -= 1.75f;
 
         }
     }
