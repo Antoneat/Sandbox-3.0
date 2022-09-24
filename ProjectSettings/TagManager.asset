@@ -15,6 +15,7 @@ TagManager:
   - Buscador
   - AtaqueNormal
   - AtaqueDuro
+  - damageController
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Enemigos
   - 
   - 
   - 

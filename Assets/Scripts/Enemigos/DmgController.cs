@@ -8,7 +8,7 @@ public class DmgController : MonoBehaviour
     private PlayerDash plyrDash;
 
     private BombDmg bombdmg;
-    public GameObject[] Bombitas;
+    public List<GameObject> Bombitas;
     public bool deadBomb;
 
     private BuscadorController dogC;
@@ -23,17 +23,15 @@ public class DmgController : MonoBehaviour
         plyrDash = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDash>();
 
 
-        bombdmg = GameObject.FindGameObjectWithTag("Bombita").GetComponent<BombDmg>();
         dogC = GameObject.FindGameObjectWithTag("Buscador").GetComponent<BuscadorController>();
-        dogdmg = GameObject.FindGameObjectWithTag("Buscador").GetComponent<BuscadorDmg>();
 
-        Bombitas = new GameObject[5];
+        Bombitas = new List<GameObject>();
     }
 
 
     void Update()
     {
-        Bombitas = GameObject.FindGameObjectsWithTag("Bombita");
+        Bombitas.AddRange(GameObject.FindGameObjectsWithTag("Bombita"));
      
         BombDAÑO();
 
@@ -44,9 +42,9 @@ public class DmgController : MonoBehaviour
         foreach (GameObject Bombita in Bombitas)
         {
             dmgMultiplier += 1;
-            if (dmgMultiplier >= 5f)
+           if (Bombitas ==null)
             {
-                dmgMultiplier = 0;
+                dmgMultiplier= 1;
             }
         }
     }

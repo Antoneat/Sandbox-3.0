@@ -8,12 +8,11 @@ public class PlayerDmg : MonoBehaviour
     public float actualvida;
     private float maxVida = 30f;
 
-    private BombDmg Bdmg;
     private DmgController dmgC;
 
     void Start()
     {
-        Bdmg = GameObject.FindGameObjectWithTag("Bombita").GetComponent<BombDmg>();
+        
         dmgC = GameObject.FindGameObjectWithTag("damageController").GetComponent<DmgController>();
         actualvida = maxVida;
     }
@@ -42,6 +41,9 @@ public class PlayerDmg : MonoBehaviour
         {
             actualvida -= 0.25f * dmgC.dmgMultiplier;
         }
-
+        if (collider.gameObject.CompareTag("MordiscoEnemy1"))
+        {
+            actualvida -= 3;
+        }
     }
 }
