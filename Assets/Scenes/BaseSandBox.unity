@@ -20151,10 +20151,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57acaa39a7ca493408baf16cbaddf962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
-  playerDash: {fileID: 0}
-  playerDmg: {fileID: 0}
-  scarletTransform: {fileID: 0}
+  playerMovement: {fileID: 7850947057579772050}
+  playerDash: {fileID: 7850947057579772049}
+  playerDmg: {fileID: 7850947057579772054}
+  scarletTransform: {fileID: 4184976637509309173}
   text_Xpos: {fileID: 743775379}
   text_Ypos: {fileID: 1241198061}
   text_Zpos: {fileID: 127579297}
