@@ -52,5 +52,8 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("Run", false);
         }
+
+        Debug.Log(rgbd.velocity.x);
+        Debug.Log(rgbd.velocity.z);
     }
 }

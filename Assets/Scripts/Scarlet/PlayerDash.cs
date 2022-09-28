@@ -1,19 +1,20 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDash : MonoBehaviour
 {
-    private Rigidbody rgbd;
-    public PlayerMovement playerMovement;
-    public Animator anim;
+    [Header("Componentes")]
+    [SerializeField] private Rigidbody rgbd;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private Animator anim;
+    public Transform orientation;
 
     [Header("Dashing")]
     public float dashForce;
-    public float dashDuration;
+    public float dashDuration; // reemplazado por la duracion de la anim (eliminar de la consola)
     public bool isDashing;
 
-    [Header("Reset")]
+    [Header("ResetDash")]
     public bool killedEnemy;
 
     private void Start()
@@ -31,24 +32,17 @@ public class PlayerDash : MonoBehaviour
             anim.SetTrigger("Dash");
         }
     }
-
+    
     public void Dashing()
     {
-        //if (killedEnemy == false) return;
-        Debug.Log("Dasheando");
-       
+        Debug.Log("Dashing");
         playerMovement.maxSpeed = 10f;
-
-        Vector3 forcetoApply = rgbd.velocity.normalized * dashForce;
-
-        rgbd.AddForce(forcetoApply, ForceMode.Impulse);
-
-        // Invoke(nameof(ResetDash),0.01f);
-
-        // Invoke(nameof(ResetDash), dashDuration);
+        //Vector3 forceToApply = orientation.forward * dashForce * Time.deltaTime;
+        Vector3 forceToApply = rgbd.velocity.normalized * dashForce;
+        rgbd.AddForce(forceToApply, ForceMode.Impulse);
     }
 
-    public void ResetDash()
+    public void FinishDash()
     {
         Debug.Log("Termino el Dash");
         isDashing = false;
