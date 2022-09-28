@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        PlayerRotation();
     }
 
     public void Move()
@@ -37,13 +38,6 @@ public class PlayerMovement : MonoBehaviour
             rgbd.velocity = Vector3.ClampMagnitude(rgbd.velocity, maxSpeed);
         }
 
-        if(rgbd.velocity.normalized != lastTransform && rgbd.velocity != Vector3.zero)
-        {
-            lastTransform = rgbd.velocity.normalized;
-        }
-
-        playerTransform.rotation = Quaternion.LookRotation(lastTransform);
-
         if (rgbd.velocity.x != 0 || rgbd.velocity.z != 0)
         {
             anim.SetBool("Run", true);
@@ -55,5 +49,16 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log(rgbd.velocity.x);
         Debug.Log(rgbd.velocity.z);
+    }
+
+    public void PlayerRotation()
+    {
+        if (rgbd.velocity.normalized != lastTransform && rgbd.velocity != Vector3.zero)
+        {
+            lastTransform = rgbd.velocity.normalized;
+        }
+
+        playerTransform.rotation = Quaternion.LookRotation(lastTransform);
+
     }
 }
