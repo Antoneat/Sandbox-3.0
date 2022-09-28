@@ -16,6 +16,7 @@ TagManager:
   - AtaqueNormal
   - AtaqueDuro
   - damageController
+  - mesa
   layers:
   - Default
   - TransparentFX
