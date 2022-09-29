@@ -28,6 +28,14 @@ public class CameraRotation : MonoBehaviour
         text_Zrot.text = "Z:" + cameraTransform.eulerAngles.z;
     }
 
+    #region Rotacion X
+    public void MasUnoRotX()
+    {
+        xRot = xRot + 1;
+        text_Xrot.text = "X:" + xRot;
+
+        cameraTransform.eulerAngles = new Vector3(xRot, yRot, zRot);
+    }
     public void ChangeRotX(string rotX)
     {
         int rotXNew = Int32.Parse(rotX);
@@ -37,6 +45,8 @@ public class CameraRotation : MonoBehaviour
 
         cameraTransform.eulerAngles = new Vector3(rotXNew, yRot, zRot);
     }
+
+    #endregion
 
     public void ChangeRotY(string rotY)
     {

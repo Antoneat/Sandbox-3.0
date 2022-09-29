@@ -22,11 +22,6 @@ public class ConsolaComandosManager : MonoBehaviour
         {
             panelComandos.SetActive(true);
         }
-
-        if(playerDmg.actualvida <= 0)
-        {
-            panelReinicio.SetActive(true);
-        }
     }
 
     public void ClosePanelComandos()

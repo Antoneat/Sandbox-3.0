@@ -11,6 +11,7 @@ public class Reiniciar : MonoBehaviour
 
     public ConsolaComandosManager consolaComandos;
 
+
     public void ReinciarScarlet()
     {
         consolaComandos.panelReinicio.SetActive(false);

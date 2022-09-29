@@ -9,6 +9,7 @@ public class PlayerDmg : MonoBehaviour
     private float maxVida = 30f;
 
     private DmgController dmgC;
+    public ConsolaComandosManager consolaComandos;
 
     void Start()
     {
@@ -37,6 +38,7 @@ public class PlayerDmg : MonoBehaviour
 
     public void Dead()
     {
+        consolaComandos.panelReinicio.SetActive(true);
         Destroy(gameObject);
     }
 

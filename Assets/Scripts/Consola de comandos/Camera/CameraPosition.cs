@@ -28,6 +28,15 @@ public class CameraPosition : MonoBehaviour
         text_Zpos.text = "Z:" + cameraTransform.position.z;
     }
 
+    #region Position X
+
+    public void MasUnoPosX()
+    {
+        xPos++;
+        text_Xpos.text = "X:" + xPos;
+
+        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, yPos, zPos);
+    }
     public void ChangePosX(string posX)
     {
         int posXNew = Int32.Parse(posX);
@@ -37,6 +46,9 @@ public class CameraPosition : MonoBehaviour
 
         cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(posXNew, yPos, zPos);
     }
+
+
+    #endregion
 
     public void ChangePosY(string posY)
     {
