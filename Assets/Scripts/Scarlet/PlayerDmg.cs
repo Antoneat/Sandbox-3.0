@@ -6,7 +6,7 @@ public class PlayerDmg : MonoBehaviour
 {
     [Header("Vida")]
     public float actualvida;
-    private float maxVida = 30f;
+   // private float maxVida = 30f;
 
     private DmgController dmgC;
 
@@ -39,11 +39,15 @@ public class PlayerDmg : MonoBehaviour
 
         if (collider.gameObject.CompareTag("AtkBomb"))
         {
-            actualvida -= 0.25f * dmgC.dmgMultiplier;
+            actualvida -= 0.25f; //* mecanica tinoco: dmgC.dmgMultiplier; andre no jodas tkm
         }
         if (collider.gameObject.CompareTag("MordiscoEnemy1"))
         {
             actualvida -= 1.75f;
+        }
+        if (collider.gameObject.CompareTag("Lanza"))
+        {
+            actualvida -= 2.5f;
         }
     }
 }

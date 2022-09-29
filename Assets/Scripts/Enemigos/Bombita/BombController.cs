@@ -112,7 +112,7 @@ public class BombController : MonoBehaviour
 		yield return new WaitForSecondsRealtime(1.5f);
 		ChangeColorBack();
 		basicoGO.SetActive(false);
-		bombDmg.vida -= 5;
+		Destroy(gameObject);
 		//atkBTxt.SetActive(false);
 		coPlay = false;
 		yield break;
@@ -136,10 +136,10 @@ public class BombController : MonoBehaviour
 	private void OnTriggerEnter(Collider collider)
 	{
 
-		if (collider.gameObject.CompareTag("AtkBomb"))
-		{
-			StartCoroutine(AtaqueBasico());
-		}
+		//if (collider.gameObject.CompareTag("AtkBomb"))
+		//{
+		//	StartCoroutine(AtaqueBasico());
+	//	}
 	}
 }
 

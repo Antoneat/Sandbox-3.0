@@ -28,13 +28,13 @@ public class DmgController : MonoBehaviour
 
     void Update()
     {
-        Bombitas.AddRange(GameObject.FindGameObjectsWithTag("Bombita"));
+       // Bombitas.AddRange(GameObject.FindGameObjectsWithTag("Bombita"));
      
-        BombDAÑO();
+        //BombDAÑO();
 
     }
 
-    public void BombDAÑO()
+   /* public void BombDAÑO()
     {
         foreach (GameObject Bombita in Bombitas)
         {
@@ -45,5 +45,5 @@ public class DmgController : MonoBehaviour
             }
         }
     }
-
+   */
 }

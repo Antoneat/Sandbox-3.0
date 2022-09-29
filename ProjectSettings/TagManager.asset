@@ -19,6 +19,7 @@ TagManager:
   - mesa
   - Guadana
   - Verdugo
+  - Lanza
   layers:
   - Default
   - TransparentFX
