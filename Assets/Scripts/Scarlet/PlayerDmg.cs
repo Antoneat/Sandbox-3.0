@@ -14,7 +14,7 @@ public class PlayerDmg : MonoBehaviour
     {
         
         dmgC = GameObject.FindGameObjectWithTag("damageController").GetComponent<DmgController>();
-        actualvida = maxVida;
+        //actualvida = maxVida;
     }
 
     void Update()
