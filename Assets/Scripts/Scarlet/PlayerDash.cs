@@ -7,7 +7,7 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private Rigidbody rgbd;
     [SerializeField] private PlayerMovement playerMovement;
     [SerializeField] private Animator anim;
-    public Transform orientation;
+    public Vector3 orientation;
 
     [Header("Dashing")]
     public float dashForce;
@@ -29,6 +29,8 @@ public class PlayerDash : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
         {
             isDashing = true;
+            orientation = playerMovement.lastTransform;
+            playerMovement.enabled = false;
             anim.SetTrigger("Dash");
         }
     }
@@ -36,17 +38,18 @@ public class PlayerDash : MonoBehaviour
     public void Dashing()
     {
         Debug.Log("Dashing");
-        playerMovement.maxSpeed = 10f;
-        //Vector3 forceToApply = orientation.forward * dashForce * Time.deltaTime;
-        Vector3 forceToApply = rgbd.velocity.normalized * dashForce;
-        rgbd.AddForce(forceToApply, ForceMode.Impulse);
+        //playerMovement.maxSpeed = 10f;
+        
+        Vector3 forceToApply = orientation * dashForce;
+        rgbd.AddForce(forceToApply, ForceMode.VelocityChange);
     }
 
     public void FinishDash()
     {
         Debug.Log("Termino el Dash");
         isDashing = false;
-        playerMovement.maxSpeed = 7.2f;
+        playerMovement.enabled = true;
+        //playerMovement.maxSpeed = 7.2f;
         killedEnemy = false;
     }
 }

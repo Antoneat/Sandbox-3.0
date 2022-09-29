@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PlayerAttackCombo : MonoBehaviour
 {
+    [Header("Components")]
     public Animator anim;
     public Collider armaColliderRight;
-    //public BoxCollider armaColliderRight;
+    public PlayerMovement playerMovement;
     public PlayerHardAttack playerHardAttack;
 
     public int combo;
@@ -19,6 +20,7 @@ public class PlayerAttackCombo : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerHardAttack = GetComponent<PlayerHardAttack>();
+        playerMovement = GetComponent<PlayerMovement>();
         // audioSourse = GetComponent<AudioSouce>();
     }
 
@@ -37,6 +39,11 @@ public class PlayerAttackCombo : MonoBehaviour
             // audio.clip = sonido[combo];
             // audio.Play();
         }
+    }
+
+    public void StopMovement()
+    {
+        playerMovement.enabled = false;
     }
 
     public void Attacking()
@@ -64,6 +71,7 @@ public class PlayerAttackCombo : MonoBehaviour
     {
         Debug.Log("Termino de atacar");
         attacking = false;
+        playerMovement.enabled = true;
         combo = 0;
     }
 }

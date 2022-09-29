@@ -10,14 +10,14 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rgbd;
     public Animator anim;
 
-    public Transform playerTransform;
     public Vector3 lastTransform;
+    public Transform playerTransform;
 
     void Start()
     {
         rgbd = GetComponent<Rigidbody>();
-        playerTransform = GetComponent<Transform>();
         anim = GetComponent<Animator>();
+        playerTransform = GetComponent<Transform>();
     }
 
     void FixedUpdate()
@@ -59,6 +59,5 @@ public class PlayerMovement : MonoBehaviour
         }
 
         playerTransform.rotation = Quaternion.LookRotation(lastTransform);
-
     }
 }

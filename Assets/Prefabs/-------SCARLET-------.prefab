@@ -312,8 +312,8 @@ MonoBehaviour:
   maxSpeed: 7.2
   rgbd: {fileID: 5555373486834842609}
   anim: {fileID: 5555373486834842605}
-  playerTransform: {fileID: 2015512652424683927}
   lastTransform: {x: 0, y: 0, z: 0}
+  playerTransform: {fileID: 2015512652424683927}
 --- !u!114 &5555373486834842611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ MonoBehaviour:
   rgbd: {fileID: 5555373486834842609}
   playerMovement: {fileID: 5555373486834842608}
   anim: {fileID: 5555373486834842605}
-  orientation: {fileID: 2015512652424683927}
+  orientation: {x: 0, y: 0, z: 0}
   dashForce: 15
   dashDuration: 0.25
   isDashing: 0
@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 5555373486834842605}
   armaColliderRight: {fileID: 5871250574382172294}
+  playerMovement: {fileID: 5555373486834842608}
   playerHardAttack: {fileID: 5555373486834842615}
   combo: 0
   attacking: 0
