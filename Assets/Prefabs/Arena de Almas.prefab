@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8610250797209863077}
   - component: {fileID: 8610250797209863076}
   - component: {fileID: 8610250797209863083}
+  - component: {fileID: 1513918486}
   m_Layer: 0
   m_Name: Arena de Almas
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05ba7fdf0fbbb084b996f613247ea4bc, type: 2}
+  - {fileID: 2100000, guid: 6d874c2209cd2e1418eb3c78137d4ec6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,3 +98,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1513918486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8610250797209863081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ac731cc3843514f83073196726f75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  danoArena: 0
+  timerMain: 2

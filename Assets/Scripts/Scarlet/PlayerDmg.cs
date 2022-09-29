@@ -6,13 +6,13 @@ public class PlayerDmg : MonoBehaviour
 {
     [Header("Vida")]
     public float actualvida;
-   // private float maxVida = 30f;
+    private float maxVida = 30f;
 
     private DmgController dmgC;
 
     void Start()
     {
-        
+        actualvida = 10f;
         dmgC = GameObject.FindGameObjectWithTag("damageController").GetComponent<DmgController>();
         //actualvida = maxVida;
     }
@@ -23,6 +23,12 @@ public class PlayerDmg : MonoBehaviour
         {
             Dead();
         }
+
+        if (actualvida > maxVida)
+        {
+            actualvida = maxVida;
+        }
+
     }
 
     public void GainLife(float life) => actualvida += life;

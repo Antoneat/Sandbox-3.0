@@ -5,13 +5,14 @@ using UnityEngine;
 public class CrisalidaDeAlmas : MonoBehaviour
 {
     private PlayerDmg playerDmg;
-
+    private SpawCrisalida spawCrisalida;
     void Start()
     {
         playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
+        spawCrisalida = GameObject.FindGameObjectWithTag("SpawCrisalida").GetComponent<SpawCrisalida>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
@@ -23,6 +24,7 @@ public class CrisalidaDeAlmas : MonoBehaviour
         {
             playerDmg.actualvida += 2.5f;
             Destroy(this.gameObject);
+            spawCrisalida.crisalidaIsActive = false;
         }
     }
 }

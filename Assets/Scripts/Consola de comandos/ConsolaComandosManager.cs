@@ -7,12 +7,25 @@ public class ConsolaComandosManager : MonoBehaviour
 
     public GameObject panelComandos, buttonsPrincipal, panelPlayerConfig, panelCameraConfig;
 
-    // Update is called once per frame
+    public GameObject panelReinicio;
+
+    private PlayerDmg playerDmg;
+
+    private void Start()
+    {
+        playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             panelComandos.SetActive(true);
+        }
+
+        if(playerDmg.actualvida <= 0)
+        {
+            panelReinicio.SetActive(true);
         }
     }
 
