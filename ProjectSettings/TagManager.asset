@@ -18,6 +18,7 @@ TagManager:
   - damageController
   - mesa
   - Guadana
+  - Verdugo
   layers:
   - Default
   - TransparentFX

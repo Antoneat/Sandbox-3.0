@@ -19,7 +19,12 @@ public class BombController : MonoBehaviour
 	public GameObject basicoGO;
 	//public GameObject atkBTxt;
 
+	private BombDmg bombDmg;
 	public bool coPlay;
+
+	[Header("FeedbackVisual")]
+	[SerializeField] GameObject Bombita;
+	Renderer bombitaRender;
 
 	void Start()
 	{
@@ -36,7 +41,7 @@ public class BombController : MonoBehaviour
 		//atkBTxt.SetActive(false);
 
 		coPlay = false;
-
+		bombitaRender = Bombita.GetComponent<Renderer>();
 	}
 
 	void Update()
@@ -94,26 +99,47 @@ public class BombController : MonoBehaviour
 	}
 
 
-	IEnumerator AtaqueBasico()
+	public IEnumerator AtaqueBasico()
 	{
 		coPlay = true;
 		agent.isStopped = true;
+		ChangeColorPreAtk();
 		yield return new WaitForSecondsRealtime(0.75f);
 		agent.isStopped = false;
 		basicoGO.SetActive(true);
+		ChangeColorAtk();
 		//atkBTxt.SetActive(true);
 		yield return new WaitForSecondsRealtime(1.5f);
+		ChangeColorBack();
 		basicoGO.SetActive(false);
+		bombDmg.vida -= 5;
 		//atkBTxt.SetActive(false);
-		yield return new WaitForSecondsRealtime(1f);
 		coPlay = false;
 		yield break;
 	}
 
-
-	private void OnCollisionEnter(Collision collision)
+	void ChangeColorPreAtk()
 	{
-		if (collision.gameObject.CompareTag("FueraDelMundo")) Destroy(gameObject); // Si toca los colliders de FueraDelMundo, se destruye.
+		bombitaRender.material.color = Color.yellow;
 	}
 
+	void ChangeColorAtk()
+	{
+		bombitaRender.material.color = Color.red;
+	}
+
+	void ChangeColorBack()
+	{
+		bombitaRender.material.color = Color.white;
+	}
+
+	private void OnTriggerEnter(Collider collider)
+	{
+
+		if (collider.gameObject.CompareTag("AtkBomb"))
+		{
+			StartCoroutine(AtaqueBasico());
+		}
+	}
 }
+

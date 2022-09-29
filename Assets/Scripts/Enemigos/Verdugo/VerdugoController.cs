@@ -22,27 +22,31 @@ public class VerdugoController : MonoBehaviour
 	//public GameObject atkBTxt;
 
 	public bool coPlay;
+	[Header("FeedbackVisual")]
+	[SerializeField] GameObject Verdugo;
+	Renderer verdugoRender;
+
+	int index;
+	public GameObject[] spawnPoints;
+	public GameObject lanzaPrefab;
+	//public bool chargingEffect;
+	//public GameObject verdugoMesh;
 
 	void Start()
 	{
 		UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
 		//agent.autoBraking = false;
-
 		goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
 		agent.SetDestination(goal.position);
 
-
-
 		dead = false;
-		basicoGO.SetActive(false);
+		//basicoGO.SetActive(false);
 
+		index = spawnPoints.Length;
 		//atkBTxt.SetActive(false);
 
 		coPlay = false;
-
-		vida = 10;
+		verdugoRender = Verdugo.GetComponent<Renderer>();
 	}
 
 	void Update()
@@ -54,8 +58,8 @@ public class VerdugoController : MonoBehaviour
 		{
 			LookAtPlayer();
 			Debug.Log("Seen");
-			Chase();
-			agent.isStopped = false;
+			//Chase();
+			//agent.isStopped = false;
 		}
 		else if (playerDistance > awareAI)
 		{
@@ -67,12 +71,12 @@ public class VerdugoController : MonoBehaviour
 		if (playerDistance <= atkRange && coPlay == false)
 		{
 			StartCoroutine(LanzaEspiritual());
-			agent.isStopped = false;
+			//agent.isStopped = false;
 		}
 		else if (playerDistance > atkRange)
 		{
 			LookAtPlayer();
-			agent.isStopped = false;
+			//agent.isStopped = false;
 		}
 	}
 
@@ -103,18 +107,41 @@ public class VerdugoController : MonoBehaviour
 	{
 		coPlay = true;
 		agent.isStopped = true;
+		ChangeColorPreAtk();
 		yield return new WaitForSecondsRealtime(1f);
-		agent.isStopped = false;
-		basicoGO.SetActive(true);
+		//agent.isStopped = false;
+		SpawnRafaga();
+		ChangeColorAtk();
 		yield return new WaitForSecondsRealtime(2f);
-		basicoGO.SetActive(false);
-		yield return new WaitForSecondsRealtime(1f);
+		//basicoGO.SetActive(false);
+		ChangeColorBack();
 		coPlay = false;
 		yield break;
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	void SpawnRafaga()
 	{
-		if (collision.gameObject.CompareTag("FueraDelMundo")) Destroy(gameObject); // Si toca los colliders de FueraDelMundo, se destruye.
+		for (int i = 0; i < index; i++)
+		{
+			GameObject spheraQuemadura = Instantiate(lanzaPrefab);
+			spheraQuemadura.transform.position = spawnPoints[i].transform.position;
+			spheraQuemadura.transform.localRotation = spawnPoints[i].gameObject.transform.rotation;
+		}
+
+	}
+
+	void ChangeColorPreAtk()
+	{
+		verdugoRender.material.color = Color.yellow;
+	}
+
+	void ChangeColorAtk()
+	{
+		verdugoRender.material.color = Color.red;
+	}
+
+	void ChangeColorBack()
+	{
+		verdugoRender.material.color = Color.white;
 	}
 }

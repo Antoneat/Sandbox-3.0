@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class BuscadorDmg : MonoBehaviour
 {
-    private PlayerDmg plyrDMG;
+    //private PlayerDmg plyrDMG;
 
     [Header("Vida")]
     public float vida;
- 
+
 
 
     void Start()
     {
-        plyrDMG = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
+        // plyrDMG = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
         vida = 10;
     }
 
@@ -37,9 +37,5 @@ public class BuscadorDmg : MonoBehaviour
         if (collider.gameObject.CompareTag("AtaqueNormal")) vida -= 2; // Baja la vida del enemigo acorde con el valor que se puso en el ataque.
 
         if (collider.gameObject.CompareTag("AtaqueDuro")) vida -= 4; // Lo de arriba x2.
-
-
-
-
     }
 }

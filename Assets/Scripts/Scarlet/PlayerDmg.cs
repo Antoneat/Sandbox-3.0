@@ -43,7 +43,7 @@ public class PlayerDmg : MonoBehaviour
         }
         if (collider.gameObject.CompareTag("MordiscoEnemy1"))
         {
-            actualvida -= 3;
+            actualvida -= 1.75f;
         }
     }
 }

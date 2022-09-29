@@ -19,25 +19,27 @@ public class BuscadorController : MonoBehaviour
 
 	public bool coPlay;
 	public bool ataco;
-	void Start()
+
+	[Header("FeedbackVisual")]
+	[SerializeField] GameObject Dog;
+	Renderer dogRender;
+
+    void Start()
 	{
 		UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
-		//agent.autoBraking = false;
-
 		goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-
 		agent.SetDestination(goal.position);
 
 
 		basicoGO.SetActive(false);
-
 		//atkBTxt.SetActive(false);
 
 		coPlay = false;
 		ataco = false;
 
-		
+		dogRender = Dog.GetComponent<Renderer>();
+
 	}
 
 	void Update()
@@ -98,8 +100,10 @@ public class BuscadorController : MonoBehaviour
 	{
 		coPlay = true;
 		agent.isStopped = true;
+		ChangeColorPreAtk();
 		yield return new WaitForSecondsRealtime(1.5f);
 		agent.isStopped = false;
+		ChangeColorAtk();
 		basicoGO.SetActive(true);
 		if(playerDistance <= atkRange)
         {
@@ -107,15 +111,25 @@ public class BuscadorController : MonoBehaviour
         }
 		yield return new WaitForSecondsRealtime(2f);
 		basicoGO.SetActive(false);
+		ChangeColorBack();
 		ataco = false;
-		yield return new WaitForSecondsRealtime(0.5f);
 		coPlay = false;
 		yield break;
 	}
 
-	private void OnCollisionEnter(Collision collision)
+	void ChangeColorPreAtk()
+    {
+		dogRender.material.color = Color.yellow;
+    }
+
+	void ChangeColorAtk()
 	{
-		if (collision.gameObject.CompareTag("FueraDelMundo")) Destroy(gameObject); // Si toca los colliders de FueraDelMundo, se destruye.
+		dogRender.material.color = Color.red;
+	}
+
+	void ChangeColorBack()
+	{
+		dogRender.material.color = Color.white;
 	}
 }
 
