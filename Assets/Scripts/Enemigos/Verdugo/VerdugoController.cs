@@ -17,8 +17,8 @@ public class VerdugoController : MonoBehaviour
 	public float vida;
 	public bool dead;
 
-	[Header("AtaqueBasico")]
-	public GameObject basicoGO;
+	//[Header("AtaqueBasico")]
+	//public GameObject basicoGO;
 	//public GameObject atkBTxt;
 
 	public bool coPlay;
@@ -123,9 +123,9 @@ public class VerdugoController : MonoBehaviour
 	{
 		for (int i = 0; i < index; i++)
 		{
-			GameObject spheraQuemadura = Instantiate(lanzaPrefab);
-			spheraQuemadura.transform.position = spawnPoints[i].transform.position;
-			spheraQuemadura.transform.localRotation = spawnPoints[i].gameObject.transform.rotation;
+			GameObject LanzaEspiritual = Instantiate(lanzaPrefab);
+			LanzaEspiritual.transform.position = spawnPoints[i].transform.position;
+			LanzaEspiritual.transform.localRotation = spawnPoints[i].gameObject.transform.rotation;
 		}
 
 	}

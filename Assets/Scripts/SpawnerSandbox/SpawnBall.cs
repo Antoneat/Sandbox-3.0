@@ -26,6 +26,7 @@ public class SpawnBall : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Instantiate(enemy, tpBicho, Quaternion.identity);
+            enemy.SetActive(true);
         }
 
        

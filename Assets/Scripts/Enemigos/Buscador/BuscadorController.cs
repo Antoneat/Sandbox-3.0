@@ -20,6 +20,8 @@ public class BuscadorController : MonoBehaviour
 	public bool coPlay;
 	public bool ataco;
 
+	PlayerDmg plyrDmg;
+
 	[Header("FeedbackVisual")]
 	[SerializeField] GameObject Dog;
 	Renderer dogRender;
@@ -29,6 +31,7 @@ public class BuscadorController : MonoBehaviour
 		UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
 		goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+		plyrDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
 		agent.SetDestination(goal.position);
 
 
@@ -101,15 +104,19 @@ public class BuscadorController : MonoBehaviour
 		coPlay = true;
 		agent.isStopped = true;
 		ChangeColorPreAtk();
-		yield return new WaitForSecondsRealtime(1.5f);
+		yield return new WaitForSecondsRealtime(2.5f);
 		agent.isStopped = false;
 		ChangeColorAtk();
 		basicoGO.SetActive(true);
 		if(playerDistance <= atkRange)
         {
 			ataco = true;
-        }
-		yield return new WaitForSecondsRealtime(2f);
+				if (ataco == true)
+				{
+					plyrDmg.actualvida -= 1.5f;
+				}
+		}
+		yield return new WaitForSecondsRealtime(1f);
 		basicoGO.SetActive(false);
 		ChangeColorBack();
 		ataco = false;

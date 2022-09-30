@@ -22,7 +22,7 @@ public class ObjetosRompibles : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.CompareTag("AtaqueNormal")) vida--;
+        if (collider.gameObject.CompareTag("Guadana")) vida--;
 
         if (collider.gameObject.CompareTag("AtaqueDuro")) vida--;
     }

@@ -18,8 +18,8 @@ public class StadosController : MonoBehaviour
     public float timeStunned;
 
     //datos jugador
-    PlayerDmg pDmg;
-    PlayerMovement pMov;
+    [SerializeField]PlayerDmg pDmg;
+    [SerializeField] PlayerMovement pMov;
 
     private void Start()
     {
@@ -30,25 +30,15 @@ public class StadosController : MonoBehaviour
 
     void Update()
     {
-
-    }
- 
-    
-   void Quemado()
-    {
-        if (currentlyQueamdo==true)
+        if (currentlyQueamdo == true)
         {
             timeBurning += Time.deltaTime;
-           StartCoroutine(Quemandose());
+            StartCoroutine(Quemandose());
             if (timeBurning >= 3f)
             {
-                currentlyQueamdo=false;
+                currentlyQueamdo = false;
             }
         }
-    }
-
-    void Bleeding()
-    {
         if (currentlyBleeding == true)
         {
             timeBleeding += Time.deltaTime;
@@ -58,29 +48,26 @@ public class StadosController : MonoBehaviour
                 currentlyBleeding = false;
             }
         }
-    }
-
-    void Stunned()
-    {
         if (currentlyStunned == true)
         {
             timeStunned += Time.deltaTime;
             pMov.speed = 0;
-            if (timeStunned>= 5f)
+            if (timeStunned >= 5f)
             {
                 pMov.speed = 500f;
                 currentlyStunned = false;
             }
         }
     }
+ 
 
     IEnumerator Quemandose()
     {
         pMov.speed = pMov.speed * 0.25f;
         pDmg.actualvida -= 0.5f;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         pDmg.actualvida -= 0.5f;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         pDmg.actualvida -= 0.5f;
         pMov.speed = 500f;
         yield break;
@@ -88,13 +75,13 @@ public class StadosController : MonoBehaviour
     IEnumerator Sangrando()
     {
         pDmg.actualvida -= 0.5f;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         pDmg.actualvida -= 0.5f;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         pDmg.actualvida -= 0.5f;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         pDmg.actualvida -= 0.5f;
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(1f);
         pDmg.actualvida -= 0.5f;
         yield break;
     }

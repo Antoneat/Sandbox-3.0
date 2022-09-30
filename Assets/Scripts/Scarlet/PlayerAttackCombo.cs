@@ -57,7 +57,7 @@ public class PlayerAttackCombo : MonoBehaviour
 
     public void ActivatingCollsBasicAttack()
     {
-        armaColliderRight.enabled = false;
+        armaColliderRight.enabled = true;
         //armaColliderRight.enabled = false;
     }
 

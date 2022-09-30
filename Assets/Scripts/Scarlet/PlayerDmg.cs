@@ -7,14 +7,13 @@ public class PlayerDmg : MonoBehaviour
     [Header("Vida")]
     public float actualvida;
     private float maxVida = 30f;
-
-    private DmgController dmgC;
+    //private DmgController dmgC;
     public ConsolaComandosManager consolaComandos;
 
     void Start()
     {
         actualvida = 10f;
-        dmgC = GameObject.FindGameObjectWithTag("damageController").GetComponent<DmgController>();
+        //dmgC = GameObject.FindGameObjectWithTag("damageController").GetComponent<DmgController>();
         //actualvida = maxVida;
     }
 
@@ -49,10 +48,7 @@ public class PlayerDmg : MonoBehaviour
         {
             actualvida -= 0.25f; //* mecanica tinoco: dmgC.dmgMultiplier; andre no jodas tkm
         }
-        if (collider.gameObject.CompareTag("MordiscoEnemy1"))
-        {
-            actualvida -= 1.75f;
-        }
+
         if (collider.gameObject.CompareTag("Lanza"))
         {
             actualvida -= 2.5f;

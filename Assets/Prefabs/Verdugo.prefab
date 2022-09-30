@@ -192,7 +192,7 @@ MonoBehaviour:
   atkRange: 5
   vida: 0
   dead: 0
-  basicoGO: {fileID: 0}
+  basicoGO: {fileID: 1759739420973834286}
   coPlay: 0
   Verdugo: {fileID: 1759739420973834286}
   spawnPoints:
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59d3caddfd4947c47b8828662b77c0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: 0
 --- !u!1 &2151589317320281310
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public class SpawnVerdugo : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Instantiate(enemy, tpVerdugo, Quaternion.identity);
+            enemy.SetActive(true);
         }
 
 

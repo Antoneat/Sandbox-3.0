@@ -104,12 +104,12 @@ public class BombController : MonoBehaviour
 		coPlay = true;
 		agent.isStopped = true;
 		ChangeColorPreAtk();
-		yield return new WaitForSecondsRealtime(0.75f);
+		yield return new WaitForSecondsRealtime(1.75f);
 		agent.isStopped = false;
 		basicoGO.SetActive(true);
 		ChangeColorAtk();
 		//atkBTxt.SetActive(true);
-		yield return new WaitForSecondsRealtime(1.5f);
+		yield return new WaitForSecondsRealtime(1f);
 		ChangeColorBack();
 		basicoGO.SetActive(false);
 		Destroy(gameObject);

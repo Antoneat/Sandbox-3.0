@@ -7,7 +7,6 @@ public class SpawnDog : MonoBehaviour
     public GameObject enemy;
 
     public Vector3 tpBuscador;
-    private Despawn dp;
 
     void Start()
     {
@@ -27,6 +26,7 @@ public class SpawnDog : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Instantiate(enemy, tpBuscador, Quaternion.identity);
+            enemy.SetActive(true);
         }
 
 
