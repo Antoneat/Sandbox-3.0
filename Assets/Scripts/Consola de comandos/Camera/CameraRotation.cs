@@ -21,6 +21,13 @@ public class CameraRotation : MonoBehaviour
     private float yRot;
     private float zRot;
 
+
+    private void Awake()
+    {
+        xRot = cameraTransform.eulerAngles.x;
+        yRot = cameraTransform.eulerAngles.y;
+        zRot = cameraTransform.eulerAngles.z;
+    }
     void Start()
     {
         text_Xrot.text = "X:" + cameraTransform.eulerAngles.x;
@@ -31,7 +38,7 @@ public class CameraRotation : MonoBehaviour
     #region Rotacion X
     public void MasUnoRotX()
     {
-        xRot = xRot + 1;
+        xRot++;
         text_Xrot.text = "X:" + xRot;
 
         cameraTransform.eulerAngles = new Vector3(xRot, yRot, zRot);
@@ -45,9 +52,24 @@ public class CameraRotation : MonoBehaviour
 
         cameraTransform.eulerAngles = new Vector3(rotXNew, yRot, zRot);
     }
+    public void MenosUnoRotX()
+    {
+        xRot--;
+        text_Xrot.text = "X:" + xRot;
+
+        cameraTransform.eulerAngles = new Vector3(xRot, yRot, zRot);
+    }
 
     #endregion
 
+    #region Rotacion Y
+    public void MasUnoRotY()
+    {
+        yRot++;
+        text_Yrot.text = "Y:" + yRot;
+
+        cameraTransform.eulerAngles = new Vector3(xRot, yRot, zRot);
+    }
     public void ChangeRotY(string rotY)
     {
         int rotYNew = Int32.Parse(rotY);
@@ -57,7 +79,24 @@ public class CameraRotation : MonoBehaviour
 
         cameraTransform.eulerAngles = new Vector3(xRot, rotYNew, zRot);
     }
+    public void MenosUnoRotY()
+    {
+        yRot--;
+        text_Yrot.text = "Y:" + yRot;
 
+        cameraTransform.eulerAngles = new Vector3(xRot, yRot, zRot);
+    }
+
+    #endregion
+
+    #region Rotacion Z
+    public void MasUnoRotZ()
+    {
+        zRot++;
+        text_Zrot.text = "Z:" + zRot;
+
+        cameraTransform.eulerAngles = new Vector3(xRot, yRot, zRot);
+    }
     public void ChangeRotZ(string rotZ)
     {
         int rotZNew = Int32.Parse(rotZ);
@@ -67,4 +106,13 @@ public class CameraRotation : MonoBehaviour
 
         cameraTransform.eulerAngles = new Vector3(xRot, yRot, rotZNew);
     }
+    public void MenosUnoRotZ()
+    {
+        zRot--;
+        text_Zrot.text = "Z:" + zRot;
+
+        cameraTransform.eulerAngles = new Vector3(xRot, yRot, zRot);
+    }
+
+    #endregion
 }

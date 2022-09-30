@@ -8,12 +8,12 @@ public class CuraInstantanea : MonoBehaviour
 
     void Start()
     {
-        playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
+        
     }
 
     void Update()
     {
-        
+        playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
     }
 
     public void OnTriggerEnter(Collider other)

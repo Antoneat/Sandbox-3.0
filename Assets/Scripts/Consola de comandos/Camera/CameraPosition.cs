@@ -21,15 +21,21 @@ public class CameraPosition : MonoBehaviour
     private float yPos;
     private float zPos;
 
+
+    private void Awake()
+    {
+        xPos = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.x;
+        yPos = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.y;
+        zPos = cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.z;
+    }
     void Start()
     {
-        text_Xpos.text = "X:" + cameraTransform.position.x;
+        text_Xpos.text = "X:" + cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.x;
         text_Ypos.text = "Y:" + cameraTransform.position.y;
-        text_Zpos.text = "Z:" + cameraTransform.position.z;
+        text_Zpos.text = "Z:" + cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset.z;
     }
 
     #region Position X
-
     public void MasUnoPosX()
     {
         xPos++;
@@ -46,10 +52,25 @@ public class CameraPosition : MonoBehaviour
 
         cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(posXNew, yPos, zPos);
     }
+    public void MenosUnoPosX()
+    {
+        xPos--;
+        text_Xpos.text = "X:" + xPos;
+
+        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, yPos, zPos);
+    }
 
 
     #endregion
 
+    #region Position Y
+    public void MasUnoPosY()
+    {
+        yPos++;
+        text_Ypos.text = "Y:" + yPos;
+
+        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, yPos, zPos);
+    }
     public void ChangePosY(string posY)
     {
         int posYNew = Int32.Parse(posY);
@@ -59,7 +80,24 @@ public class CameraPosition : MonoBehaviour
 
         cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, posYNew, zPos);
     }
-    
+    public void MenosUnoPosY()
+    {
+        yPos--;
+        text_Ypos.text = "Y:" + yPos;
+
+        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, yPos, zPos);
+    }
+
+    #endregion
+
+    #region Position Z
+    public void MasUnoPosZ()
+    {
+        zPos++;
+        text_Zpos.text = "Z:" + zPos;
+
+        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, yPos, zPos);
+    }
     public void ChangePosZ(string posZ)
     {
         int posZNew = Int32.Parse(posZ);
@@ -69,4 +107,13 @@ public class CameraPosition : MonoBehaviour
 
         cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, yPos, posZNew);
     }
+    public void MenosUnoPosZ()
+    {
+        zPos--;
+        text_Zpos.text = "Z:" + zPos;
+
+        cinemachineVirtualCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(xPos, yPos, zPos);
+    }
+
+    #endregion
 }

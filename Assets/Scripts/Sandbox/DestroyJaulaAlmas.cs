@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class DestroyJaulaAlmas : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private SpawnJaulaAlmas spawnJaulaAlmas;
     void Start()
     {
-        
+        spawnJaulaAlmas = GameObject.FindGameObjectWithTag("SpawJaulaAlmas").GetComponent<SpawnJaulaAlmas>();
     }
 
     // Update is called once per frame
@@ -22,6 +22,7 @@ public class DestroyJaulaAlmas : MonoBehaviour
         if (other.CompareTag("Guadana"))
         {
             Destroy(this.gameObject);
+            spawnJaulaAlmas.jaulaIsActive = false;
         }
     }
 }

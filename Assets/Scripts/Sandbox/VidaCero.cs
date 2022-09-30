@@ -10,14 +10,14 @@ public class VidaCero : MonoBehaviour
 
     private bool pisandoTotalCero;
 
-    public float timerMain = 2;
+    public float timerMain = 1;
 
 
     void Start()
     {
-        playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
+        
 
-        danoTotalCero = 2f;
+        danoTotalCero = 4f;
 
         pisandoTotalCero = false;
     }
@@ -25,6 +25,7 @@ public class VidaCero : MonoBehaviour
 
     void Update()
     {
+        playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
 
         if (pisandoTotalCero == true)
         {
@@ -33,7 +34,7 @@ public class VidaCero : MonoBehaviour
 
         if (timerMain <= 0)
         {
-            timerMain = 2;
+            timerMain = 1;
             BajarVida();
         }
     }

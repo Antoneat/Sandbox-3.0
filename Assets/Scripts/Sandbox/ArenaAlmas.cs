@@ -6,17 +6,17 @@ public class ArenaAlmas : MonoBehaviour
 {
     private PlayerDmg playerDmg;
 
+    private PlayerMovement playerMovement;
+
     public float danoArena;
 
     private bool pisandoArena;
 
-    public float timerMain = 2;
+    private float timerMain = 1;
 
 
     void Start()
-    {
-        playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
-
+    {  
         danoArena = 0.5f;
 
         pisandoArena = false;
@@ -25,16 +25,20 @@ public class ArenaAlmas : MonoBehaviour
     
     void Update()
     {
+        playerDmg = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+
         ChangeDanoArena();
 
         if (pisandoArena == true)
         {
             timerMain -= Time.deltaTime;
+            
         }
 
         if (timerMain <= 0)
         {
-            timerMain = 2;
+            timerMain = 1;
             BajarVida();
         }
     }
@@ -43,7 +47,8 @@ public class ArenaAlmas : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            pisandoArena = true;        
+            pisandoArena = true;
+            playerMovement.maxSpeed = playerMovement.maxSpeed - 35 * playerMovement.maxSpeed / 100;
         }
     }
 
@@ -52,6 +57,7 @@ public class ArenaAlmas : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             pisandoArena = false;
+            playerMovement.maxSpeed = 7.2f;
         }
     }
 

@@ -21,6 +21,7 @@ TagManager:
   - Verdugo
   - Lanza
   - SpawCrisalida
+  - SpawJaulaAlmas
   layers:
   - Default
   - TransparentFX

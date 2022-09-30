@@ -11,7 +11,7 @@ public class SpawCrisalida : MonoBehaviour
 
     public Transform spawnPoint;
 
-    public float timerMain = 5;
+    public float timerMain = 3;
 
     void Start()
     {
