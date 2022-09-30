@@ -31636,7 +31636,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.3000001
-        value: 0.8055112
+        value: -0.76
         inSlope: 7.3927965
         outSlope: 7.3927965
         tangentMode: 0
@@ -32239,7 +32239,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.3000001
+        time: 1.3
         value: -1.2338556
         inSlope: -2.757362
         outSlope: -2.757362
@@ -81819,7 +81819,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.3000001
-        value: 0.8055112
+        value: -0.76
         inSlope: 7.3927965
         outSlope: 7.3927965
         tangentMode: 0
@@ -82422,7 +82422,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1.3000001
+        time: 1.3
         value: -1.2338556
         inSlope: -2.757362
         outSlope: -2.757362
@@ -99447,8 +99447,22 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.5
+  - time: 0.033333335
+    functionName: StopMovement
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2333333
     functionName: HardAttacking
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3666667
+    functionName: DeactivatingCollsHardAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

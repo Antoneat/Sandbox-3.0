@@ -26,5 +26,11 @@ public class CrisalidaDeAlmas : MonoBehaviour
             Destroy(this.gameObject);
             spawCrisalida.crisalidaIsActive = false;
         }
+        if (other.CompareTag("AtaqueDuro"))
+        {
+            playerDmg.actualvida += 2.5f;
+            Destroy(this.gameObject);
+            spawCrisalida.crisalidaIsActive = false;
+        }
     }
 }
