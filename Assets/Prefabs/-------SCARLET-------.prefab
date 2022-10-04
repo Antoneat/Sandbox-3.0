@@ -330,7 +330,7 @@ MonoBehaviour:
   playerMovement: {fileID: 5555373486834842608}
   anim: {fileID: 5555373486834842605}
   orientation: {x: 0, y: 0, z: 0}
-  dashForce: 15
+  dashForce: 150
   dashDuration: 0.25
   isDashing: 0
   killedEnemy: 0
@@ -350,6 +350,7 @@ MonoBehaviour:
   armaColliderRight: {fileID: 5871250574382172294}
   playerMovement: {fileID: 5555373486834842608}
   playerHardAttack: {fileID: 5555373486834842615}
+  mousePos: {fileID: 0}
   combo: 0
   attacking: 0
 --- !u!114 &5555373486834842615
@@ -367,7 +368,9 @@ MonoBehaviour:
   anim: {fileID: 5555373486834842605}
   armaCollider1: {fileID: 7629110083308310252}
   armaCollider2: {fileID: 9179305516821988041}
+  playerMovement: {fileID: 5555373486834842608}
   playerAttackCombo: {fileID: 5555373486834842610}
+  mousePos: {fileID: 0}
   hardCombo: 0
   hardAttacking: 0
 --- !u!114 &5555373486834842612
@@ -382,7 +385,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b7b04188d6253419da0270be0095aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actualvida: 10
+  actualvida: 4
+  consolaComandos: {fileID: 0}
 --- !u!95 &5555373486834842605
 Animator:
   serializedVersion: 4
