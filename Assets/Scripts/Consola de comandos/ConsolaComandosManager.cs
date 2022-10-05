@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConsolaComandosManager : MonoBehaviour
 {
 
-    public GameObject panelComandos, buttonsPrincipal, panelPlayerConfig, panelCameraConfig;
+    public GameObject panelComandos, buttonsPrincipal, panelPlayerConfig, panelCameraConfig, panelOtherEnemies;
 
     public GameObject panelReinicio;
 
@@ -21,12 +21,14 @@ public class ConsolaComandosManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             panelComandos.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
     public void ClosePanelComandos()
     {
         panelComandos.SetActive(false);
+        Time.timeScale = 1;
     }
 
     #region Player
@@ -37,7 +39,7 @@ public class ConsolaComandosManager : MonoBehaviour
     }
     public void ClosePlayerConfig()
     {
-        panelCameraConfig.SetActive(false);
+        panelPlayerConfig.SetActive(false);
         buttonsPrincipal.SetActive(true);
 
     }
@@ -53,6 +55,21 @@ public class ConsolaComandosManager : MonoBehaviour
     public void CloseCameraConfig()
     {
         panelCameraConfig.SetActive(false);
+        buttonsPrincipal.SetActive(true);
+
+    }
+
+    #endregion
+
+    #region Other Enemies
+    public void OpenOtherEnemiesConfig()
+    {
+        panelOtherEnemies.SetActive(true);
+        buttonsPrincipal.SetActive(false);
+    }
+    public void CloseOtherEnemiesConfig()
+    {
+        panelOtherEnemies.SetActive(false);
         buttonsPrincipal.SetActive(true);
 
     }

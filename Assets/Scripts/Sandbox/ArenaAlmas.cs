@@ -12,7 +12,7 @@ public class ArenaAlmas : MonoBehaviour
 
     private bool pisandoArena;
 
-    private float timerMain = 1;
+    public float timerMain = 1;
 
 
     void Start()

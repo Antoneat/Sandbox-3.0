@@ -14,11 +14,6 @@ public class PlayerConfig : MonoBehaviour
 
     [Header("Generales")]
     public Transform scarletTransform;
-
-    [Header("Textos")]
-    public TMP_Text text_Xpos;
-    public TMP_Text text_Ypos;
-    public TMP_Text text_Zpos;
     
     public TMP_Text text_speed;
     public TMP_Text text_maxSpeed;
@@ -29,11 +24,6 @@ public class PlayerConfig : MonoBehaviour
     public TMP_Text text_vida;
 
     //[Header("Posición")]
-    private float xPos;
-    private float yPos;
-    private float zPos;
-
-    //[Header("Posición")]
     private float vlrSpeed;
     private float vlrMaxSpeed;
 
@@ -41,11 +31,6 @@ public class PlayerConfig : MonoBehaviour
 
     void Start()
     {
-        //Textos posiciones
-        text_Xpos.text = "X:" + scarletTransform.position.x;
-        text_Ypos.text = "Y:" + scarletTransform.position.y;
-        text_Zpos.text = "Z:" + scarletTransform.position.z;
-
         //Textos Speed
         text_speed.text = "Speed:" + playerMovement.speed;
         text_maxSpeed.text = "maxSpeed:" + playerMovement.maxSpeed;
@@ -56,39 +41,6 @@ public class PlayerConfig : MonoBehaviour
 
         text_vida.text = "Vida:" + playerDmg.actualvida;
     }
-
-    #region Cambiar posición
-    public void ChangePosX(string posX)
-    {
-        int posXNew = Int32.Parse(posX);
-        xPos = posXNew;
-
-        text_Xpos.text = "X:" + posX;
-
-        scarletTransform.position = new Vector3(posXNew, yPos, zPos);
-    }
-
-    public void ChangePosY(string posY)
-    {
-        int posYNew = Int32.Parse(posY);
-        yPos = posYNew;
-
-        text_Ypos.text = "Y:" + posY;
-
-        scarletTransform.position = new Vector3(xPos, posYNew, zPos);
-    }
-
-    public void ChangePosZ(string posZ)
-    {
-        int posZNew = Int32.Parse(posZ);
-        zPos = posZNew;
-
-        text_Zpos.text = "Z:" + posZ;
-
-        scarletTransform.position = new Vector3(xPos, yPos, posZNew);
-    }
-
-    #endregion
 
     ////////////////////////////////////////////////////////////////////////
 
