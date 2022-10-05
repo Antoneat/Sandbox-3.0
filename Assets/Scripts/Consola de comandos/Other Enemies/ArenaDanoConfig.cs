@@ -44,12 +44,41 @@ public class ArenaDanoConfig : MonoBehaviour
         danoFloat = danoAlmaNew;
 
         text_dano.text = "Daño:" + danoAlma;
+
+        arenaAlmas.danoArena = danoAlmaNew;
     }
     public void MenosUnoDano()
     {
         danoFloat--;
 
         text_dano.text = "Daño:" + danoFloat;
+
+        arenaAlmas.danoArena = danoFloat;
+    }
+
+    #endregion
+
+    #region Tiempo
+    public void MasUnoTiempo()
+    {
+        tiempoFloat++;
+
+        text_tiempo.text = "Tiempo:" + tiempoFloat;
+
+        arenaAlmas.timerMain = tiempoFloat;
+    }
+    public void ChangeTiempo(string tiempoAlma)
+    {
+        int timepoAlmaNew = Int32.Parse(tiempoAlma);
+        tiempoFloat = timepoAlmaNew;
+
+        text_tiempo.text = "Tiempo:" + tiempoAlma;
+    }
+    public void MenosUnoTiempo()
+    {
+        tiempoFloat--;
+
+        text_tiempo.text = "Tiempo:" + tiempoFloat;
 
         arenaAlmas.timerMain = tiempoFloat;
     }
