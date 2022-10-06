@@ -7350,6 +7350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 341664623}
   - component: {fileID: 341664624}
+  - component: {fileID: 341664625}
   m_Layer: 5
   m_Name: OtherEnemiesPanelMaster
   m_TagString: Untagged
@@ -7397,6 +7398,19 @@ MonoBehaviour:
   panelJaulaAlmas: {fileID: 0}
   panelCrisalidaAlmas: {fileID: 0}
   comandosManager: {fileID: 1052840991}
+--- !u!114 &341664625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341664622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cb9baf90c3a874882302440402fb46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oliGame: {fileID: 4906008913135897410, guid: b14e2c8afb9b30d49901e18f487d836d, type: 3}
 --- !u!1 &343136859
 GameObject:
   m_ObjectHideFlags: 0
