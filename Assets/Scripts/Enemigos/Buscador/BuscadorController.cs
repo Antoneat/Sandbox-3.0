@@ -6,6 +6,8 @@ public class BuscadorController : MonoBehaviour
 {
 	public UnityEngine.AI.NavMeshAgent agent;
 
+	public VariableManagerBuscador managerBuscador;
+
 	public int destPoint = 0;
 	public Transform goal;
 
@@ -47,7 +49,12 @@ public class BuscadorController : MonoBehaviour
 
 	void Update()
 	{
+		////////////// esta es solo una prueba puedes borrarla para el jugable
 
+		playerDistance = managerBuscador.playerDistance_SO;
+		awareAI = managerBuscador.awareAI_SO;
+
+		///
 		playerDistance = Vector3.Distance(transform.position, goal.position);
 
 		if (playerDistance <= awareAI)

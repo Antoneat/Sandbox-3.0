@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 4906008913135897422}
+  managerBuscador: {fileID: 11400000, guid: f018c19542338b648a8ea392d6bb009b, type: 2}
   destPoint: 0
   goal: {fileID: 0}
   playerDistance: 0
