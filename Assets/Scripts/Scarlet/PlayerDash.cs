@@ -38,8 +38,11 @@ public class PlayerDash : MonoBehaviour
             anim.Play("Dash");
 
             playerAttackCombo.isAttacking = false;
+            playerAttackCombo.armaColliderRight.enabled = false;
             playerAttackCombo.combo = 0;
             playerHardAttack.isHardAttacking = false;
+            playerHardAttack.armaCollider1.enabled = false;
+            playerHardAttack.armaCollider2.enabled = false;
             playerHardAttack.hardCombo = 0;
         }
     }
