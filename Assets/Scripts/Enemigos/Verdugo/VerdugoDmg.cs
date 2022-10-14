@@ -9,7 +9,7 @@ public class VerdugoDmg : MonoBehaviour
 
     void Start()
     {
-        vida = 25;
+        vida = 15;
     }
 
     void Update()

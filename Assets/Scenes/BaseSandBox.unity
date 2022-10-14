@@ -1699,7 +1699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135378733}
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -0.014433586, y: 7.5, z: -11.946215}
+  m_LocalPosition: {x: -13.03, y: 7.5, z: -23.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8239,7 +8239,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30910
+  m_Name: pb_Mesh35616
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12232,7 +12232,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31152
+  m_Name: pb_Mesh35850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -20437,7 +20437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521580a6244d2ff4b8b4fa413b59bc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 2119726176885463028, guid: 81ad12a0bc2f1bd40b84a5717e34ea48, type: 3}
   tpBicho: {x: -20.700012, y: 1, z: 39.6}
 --- !u!1 &845739004
 GameObject:
@@ -22451,7 +22451,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -0.014433586, y: 7.5, z: -11.946215}
+  m_LocalPosition: {x: -13.03, y: 7.5, z: -23.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52035,7 +52035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ebc437ea663d04196c21acdd259899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 1759739420973834286, guid: 3b6b9b93218e8d44990cdc508effe7d5, type: 3}
   tpVerdugo: {x: 33.59001, y: 0.84999084, z: 30.3}
 --- !u!1 &2086543230
 GameObject:

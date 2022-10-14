@@ -17,10 +17,6 @@ public class VerdugoController : MonoBehaviour
 	public float vida;
 	public bool dead;
 
-	//[Header("AtaqueBasico")]
-	//public GameObject basicoGO;
-	//public GameObject atkBTxt;
-
 	public bool coPlay;
 	[Header("FeedbackVisual")]
 	[SerializeField] GameObject Verdugo;
@@ -29,15 +25,13 @@ public class VerdugoController : MonoBehaviour
 	int index;
 	public GameObject[] spawnPoints;
 	public GameObject lanzaPrefab;
-	//public bool chargingEffect;
-	//public GameObject verdugoMesh;
+
 
 	void Start()
 	{
 		UnityEngine.AI.NavMeshAgent agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 		//agent.autoBraking = false;
 		goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-		agent.SetDestination(goal.position);
 
 		dead = false;
 		//basicoGO.SetActive(false);
@@ -58,13 +52,10 @@ public class VerdugoController : MonoBehaviour
 		{
 			LookAtPlayer();
 			Debug.Log("Seen");
-			//Chase();
-			//agent.isStopped = false;
 		}
 		else if (playerDistance > awareAI)
 		{
 			LookAtPlayer();
-			agent.isStopped = true;
 		}
 
 
@@ -85,28 +76,10 @@ public class VerdugoController : MonoBehaviour
 		transform.LookAt(goal);
 	}
 
-	public void Chase()
-	{
-		agent.stoppingDistance = 5;
-		agent.SetDestination(goal.position);
-
-		//transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-
-		if (agent.remainingDistance > agent.stoppingDistance)
-		{
-			agent.isStopped = false;
-
-		}
-		else if (agent.remainingDistance < agent.stoppingDistance)
-		{
-			agent.isStopped = true;
-		}
-	}
 
 	IEnumerator LanzaEspiritual()
 	{
 		coPlay = true;
-		agent.isStopped = true;
 		ChangeColorPreAtk();
 		yield return new WaitForSecondsRealtime(1f);
 		//agent.isStopped = false;

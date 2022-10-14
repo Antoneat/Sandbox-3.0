@@ -6,11 +6,9 @@ public class BombDmg : MonoBehaviour
 {
     [Header("Vida")]
     public float vida;
-    public bool dead;
 
     void Start()
     {
-       // plyrDMG = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDmg>();
         vida = 5;
     }
 
