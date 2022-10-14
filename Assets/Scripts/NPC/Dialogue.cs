@@ -17,12 +17,10 @@ public class Dialogue : MonoBehaviour
     public int lineIndex;   // Indice que se usara para comprobar 
 
     [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private PlayerOrientation playerOrientation; 
 
     void Start()
     {
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        playerOrientation = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerOrientation>();
     }
 
     void Update()
@@ -33,7 +31,7 @@ public class Dialogue : MonoBehaviour
             {
                 StartDialogue();
             }
-            else if(dialogueText.text == dialogueLines[lineIndex]) // Si el texto mostrado en pantalla es igual al string que le corresponde;
+            else if (dialogueText.text == dialogueLines[lineIndex]) // Si el texto mostrado en pantalla es igual al string que le corresponde;
             {
                 NextDialogueLine();
             }
@@ -53,8 +51,6 @@ public class Dialogue : MonoBehaviour
         //dialogueMark.SetActive(false);
         lineIndex = 0;
         playerMovement.enabled = false; // movimiento de jugador deshabilitado.
-        playerOrientation.enabled = false; // orientacion del jugados dehabilitado.
-        playerMovement.anim.SetBool("Run", false);
         playerMovement.rgbd.velocity = Vector3.zero;
         StartCoroutine(ShowLine());
     }
@@ -73,7 +69,6 @@ public class Dialogue : MonoBehaviour
             dialogueGO.SetActive(false);
             //dialogueMark.SetActive(true);
             playerMovement.enabled = true; // movimiento de jugador habilitado.
-            playerOrientation.enabled = true; // orientacion del jugados habilitado.
         }
     }
 
@@ -81,7 +76,7 @@ public class Dialogue : MonoBehaviour
     {
         dialogueText.text = string.Empty;   // Muestra en un inicio el texto vacio.
 
-        foreach(char ch in dialogueLines[lineIndex]) // Por cada caracter en el indice actual del array, se mostrara 1 por 1 en el texto del canvas.
+        foreach (char ch in dialogueLines[lineIndex]) // Por cada caracter en el indice actual del array, se mostrara 1 por 1 en el texto del canvas.
         {
             dialogueText.text += ch;
             yield return new WaitForSecondsRealtime(typingTime);

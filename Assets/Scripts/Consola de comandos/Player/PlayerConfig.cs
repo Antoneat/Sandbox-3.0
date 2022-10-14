@@ -36,8 +36,8 @@ public class PlayerConfig : MonoBehaviour
         text_maxSpeed.text = "maxSpeed:" + playerMovement.maxSpeed;
 
         //Textos Dash
-        text_dashForce.text = "DashForce:" + playerDash.dashForce;
-        text_dashDuration.text = "maxSpeed:" + playerDash.dashDuration;
+        //text_dashForce.text = "DashForce:" + playerDash.dashForce;         // REVISAR
+        //text_dashDuration.text = "maxSpeed:" + playerDash.dashDuration;    // REVISAR
 
         text_vida.text = "Vida:" + playerDmg.actualvida;
     }
@@ -76,7 +76,7 @@ public class PlayerConfig : MonoBehaviour
 
         text_dashForce.text = "DashForce:" + dashF;
 
-        playerDash.dashForce = dashFNew;
+        //playerDash.dashForce = dashFNew;      // REVISAR
     }
     public void DashDuration(string dashDu)
     {
@@ -85,7 +85,7 @@ public class PlayerConfig : MonoBehaviour
 
         text_dashDuration.text = "DashDura:" + dashDu;
 
-        playerDash.dashDuration = dashDuNew;
+        //playerDash.dashDuration = dashDuNew;          //REVISAR
     }
 
     #endregion
