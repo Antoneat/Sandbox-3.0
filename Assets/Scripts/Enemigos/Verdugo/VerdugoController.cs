@@ -13,10 +13,6 @@ public class VerdugoController : MonoBehaviour
 	public float awareAI;
 	public float atkRange;
 
-	[Header("Vida")]
-	public float vida;
-	public bool dead;
-
 	public bool coPlay;
 	[Header("FeedbackVisual")]
 	[SerializeField] GameObject Verdugo;
@@ -33,7 +29,6 @@ public class VerdugoController : MonoBehaviour
 		//agent.autoBraking = false;
 		goal = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
-		dead = false;
 		//basicoGO.SetActive(false);
 
 		index = spawnPoints.Length;
