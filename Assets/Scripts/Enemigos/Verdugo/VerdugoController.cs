@@ -6,6 +6,8 @@ public class VerdugoController : MonoBehaviour
 {
 	public UnityEngine.AI.NavMeshAgent agent;
 
+	public VariableManagerVerdugo managerVerdugo;
+
 	public int destPoint = 0;
 	public Transform goal;
 
@@ -40,6 +42,8 @@ public class VerdugoController : MonoBehaviour
 
 	void Update()
 	{
+		awareAI = managerVerdugo.awareAI_SO;
+		atkRange = managerVerdugo.atkRange_SO;
 
 		playerDistance = Vector3.Distance(transform.position, goal.position);
 

@@ -7,6 +7,14 @@ public class ConsolaComandosManager : MonoBehaviour
 
     public GameObject panelComandos, buttonsPrincipal, panelPlayerConfig, panelCameraConfig, panelOtherEnemies;
 
+    [Header("Enemigos Paneles")]
+    public GameObject panelEnemigos;
+
+    public GameObject panelBombitaConfig;
+    public GameObject panelBuscadorConfig;
+    public GameObject panelVerdugoConfig;
+
+    [Header("Otros Paneles")]
     public GameObject panelReinicio;
 
     private PlayerDmg playerDmg;
@@ -42,6 +50,66 @@ public class ConsolaComandosManager : MonoBehaviour
         panelPlayerConfig.SetActive(false);
         buttonsPrincipal.SetActive(true);
 
+    }
+
+    #endregion
+
+    #region Enemigos
+    public void OpenEnemigosConfig()
+    {
+        buttonsPrincipal.SetActive(false);
+        panelEnemigos.SetActive(true);
+    }
+
+    public void CloseEnemigosConfig()
+    {
+        buttonsPrincipal.SetActive(true);
+        panelEnemigos.SetActive(false);
+    }
+
+    #endregion
+
+    #region Buscador
+    public void OpenBuscadorConfig()
+    {
+        panelEnemigos.SetActive(false);
+        panelBuscadorConfig.SetActive(true);
+    }
+
+    public void CloseBuscadorConfig()
+    {
+        panelEnemigos.SetActive(true);
+        panelBuscadorConfig.SetActive(false);
+    }
+
+    #endregion
+
+    #region Bombita
+    public void OpenBombitaConfig()
+    {
+        panelEnemigos.SetActive(false);
+        panelBombitaConfig.SetActive(true);
+    }
+
+    public void CloseBombitaConfig()
+    {
+        panelEnemigos.SetActive(true);
+        panelBombitaConfig.SetActive(false);
+    }
+
+    #endregion
+
+    #region Verdugo
+    public void OpenVerdugoConfig()
+    {
+        panelEnemigos.SetActive(false);
+        panelVerdugoConfig.SetActive(true);
+    }
+
+    public void CloseVerdugoConfig()
+    {
+        panelEnemigos.SetActive(true);
+        panelVerdugoConfig.SetActive(false);
     }
 
     #endregion

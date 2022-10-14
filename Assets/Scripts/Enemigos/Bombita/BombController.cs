@@ -7,6 +7,10 @@ public class BombController : MonoBehaviour
 	
 	public UnityEngine.AI.NavMeshAgent agent;
 
+	public VariableManagerBombita managerBombita;
+
+	public Transform transformRangoExplosion;
+
 	public int destPoint = 0;
 	public Transform goal;
 
@@ -40,6 +44,10 @@ public class BombController : MonoBehaviour
 
 	void Update()
 	{
+		awareAI = managerBombita.awareAI_SO;
+		atkRange = managerBombita.atkRange_SO;
+
+		//transformRangoExplosion.localScale = new Vector3 (managerBombita.rangoExplosion_SO, managerBombita.rangoExplosion_SO, managerBombita.rangoExplosion_SO);
 
 		playerDistance = Vector3.Distance(transform.position, goal.position);
 

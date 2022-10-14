@@ -6,7 +6,7 @@ public class PlayerDmg : MonoBehaviour
 {
     [Header("Vida")]
     public float actualvida;
-    private float maxVida = 30f;
+    public float maxVida = 30f;
     //private DmgController dmgC;
     public ConsolaComandosManager consolaComandos;
 

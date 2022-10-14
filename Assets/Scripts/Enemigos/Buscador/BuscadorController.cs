@@ -45,12 +45,8 @@ public class BuscadorController : MonoBehaviour
 
 	void Update()
 	{
-		////////////// esta es solo una prueba puedes borrarla para el jugable
-		/*
-		playerDistance = managerBuscador.playerDistance_SO;
 		awareAI = managerBuscador.awareAI_SO;
-		*/
-		///
+		atkRange = managerBuscador.atkRange_SO;
 
 		playerDistance = Vector3.Distance(transform.position, goal.position);
 

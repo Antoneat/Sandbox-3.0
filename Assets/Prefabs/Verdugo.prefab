@@ -172,13 +172,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1759739420973834274}
+  managerVerdugo: {fileID: 11400000, guid: 38a022c56b4d47d4eb9a6c353c75b945, type: 2}
   destPoint: 0
   goal: {fileID: 0}
   playerDistance: 0
   awareAI: 14
   atkRange: 10
-  vida: 0
-  dead: 0
   coPlay: 0
   Verdugo: {fileID: 1759739420973834286}
   spawnPoints:
