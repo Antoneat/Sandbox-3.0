@@ -20,6 +20,8 @@ public class BarraVida : MonoBehaviour
     }
     void Update()
     {
+        playerDmg = FindObjectOfType<PlayerDmg>();
+
         vidaActual = playerDmg.actualvida;
 
         vidaMax = playerDmg.maxVida;

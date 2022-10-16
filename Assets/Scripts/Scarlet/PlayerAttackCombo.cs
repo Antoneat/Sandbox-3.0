@@ -35,6 +35,7 @@ public class PlayerAttackCombo : MonoBehaviour
     void Update()
     {
         Combo();
+        mousePos = GameObject.FindGameObjectWithTag("MousePos");
     }
 
     public void Combo()

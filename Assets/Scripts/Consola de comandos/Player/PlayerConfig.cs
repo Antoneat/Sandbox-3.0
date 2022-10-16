@@ -28,6 +28,12 @@ public class PlayerConfig : MonoBehaviour
     private float vlrMaxSpeed;
 
 
+    private void Update()
+    {
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        playerDash = FindObjectOfType<PlayerDash>();
+        playerDmg = FindObjectOfType<PlayerDmg>();
+    }
 
     void Start()
     {

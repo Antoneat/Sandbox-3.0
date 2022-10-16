@@ -19,6 +19,8 @@ public class PlayerDmg : MonoBehaviour
 
     void Update()
     {
+        consolaComandos = FindObjectOfType<ConsolaComandosManager>();
+
         if (actualvida <= 0)
         {
             Dead();

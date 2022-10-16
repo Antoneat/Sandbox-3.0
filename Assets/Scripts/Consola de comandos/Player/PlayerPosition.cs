@@ -29,6 +29,12 @@ public class PlayerPosition : MonoBehaviour
         zPos = scarletTransform.position.z;
     }
 
+    private void Update()
+    {
+        playerMovement = FindObjectOfType<PlayerMovement>();
+        scarletTransform = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     void Start()
     {
         //Textos posiciones

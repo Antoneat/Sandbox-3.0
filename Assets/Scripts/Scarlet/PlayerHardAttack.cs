@@ -36,6 +36,7 @@ public class PlayerHardAttack : MonoBehaviour
     void Update()
     {
         HardCombo();
+        mousePos = GameObject.FindGameObjectWithTag("MousePos");
     }
 
     public void HardCombo()
