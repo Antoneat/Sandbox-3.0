@@ -67,8 +67,8 @@ public class PlayerHardAttack : MonoBehaviour
     {
         Debug.Log("AtacandoHARD");
         isHardAttacking = false;
-        armaCollider1.enabled = true;
-        armaCollider2.enabled = true;
+        //armaCollider1.enabled = true;
+        //armaCollider2.enabled = true;
         if (hardCombo < 3) hardCombo++;
     }
 

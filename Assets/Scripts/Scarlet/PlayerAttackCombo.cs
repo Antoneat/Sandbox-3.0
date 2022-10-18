@@ -45,6 +45,7 @@ public class PlayerAttackCombo : MonoBehaviour
             isAttacking = true;
 
             playerMovement.playerTransform.LookAt(mousePos.transform.position);
+
             playerMovement.lastTransform = new Vector3(mousePos.transform.position.x, 0, mousePos.transform.position.z);
 
             Vector3.MoveTowards(transform.position, mousePos.transform.position, 1f);
@@ -63,11 +64,11 @@ public class PlayerAttackCombo : MonoBehaviour
         playerMovement.maxSpeed = 0f;
     }
 
-    public void Attacking()
+    public void Attacking() // Cambiar por un bool para cuando termine la anim, cambie al sgte
     {
         Debug.Log("Atacando");
         isAttacking = false;
-        armaColliderRight.enabled = true;
+        //armaColliderRight.enabled = true;
         if (combo < 3) combo++;
     }
 

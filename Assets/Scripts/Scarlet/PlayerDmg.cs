@@ -10,11 +10,14 @@ public class PlayerDmg : MonoBehaviour
     //private DmgController dmgC;
     public ConsolaComandosManager consolaComandos;
 
+    [Header("Animator")]
+    [SerializeField] private Animator anim;
+
     void Start()
     {
-        actualvida = 10f;
         //dmgC = GameObject.FindGameObjectWithTag("damageController").GetComponent<DmgController>();
-        //actualvida = maxVida;
+        actualvida = maxVida;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -40,7 +43,8 @@ public class PlayerDmg : MonoBehaviour
     public void Dead()
     {
         consolaComandos.panelReinicio.SetActive(true);
-        Destroy(gameObject);
+        anim.Play("Muerte");
+        Destroy(gameObject, 3.20f);
     }
 
     private void OnTriggerEnter(Collider collider)
