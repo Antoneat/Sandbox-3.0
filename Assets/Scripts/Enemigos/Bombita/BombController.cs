@@ -93,7 +93,7 @@ public class BombController : MonoBehaviour
 		coPlay = true;
 		agent.isStopped = true;
 		ChangeColorPreAtk();
-		yield return new WaitForSecondsRealtime(1.75f);
+		yield return new WaitForSeconds(1f);
 		agent.isStopped = true;
 		//ChangeColorAtk();
 		basicoGO.SetActive(true);
@@ -114,6 +114,13 @@ public class BombController : MonoBehaviour
 		//{
 		//	StartCoroutine(AtaqueBasico());
 	//	}
+	}
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.blue;
+		Gizmos.DrawWireSphere(transform.position, awareAI);
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, atkRange);
 	}
 }
 

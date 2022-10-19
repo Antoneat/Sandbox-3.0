@@ -10,6 +10,8 @@ public class PlayerDmg : MonoBehaviour
     //private DmgController dmgC;
     public ConsolaComandosManager consolaComandos;
 
+    public int actualSouls;
+
     [Header("Animator")]
     [SerializeField] private Animator anim;
 
@@ -33,10 +35,11 @@ public class PlayerDmg : MonoBehaviour
         {
             actualvida = maxVida;
         }
-
     }
 
     public void GainLife(float life) => actualvida += life;
+
+    public void GainSoul(int soul) => actualSouls += soul;
 
     public void LoseLife(float dmg) => actualvida -= dmg;
 
@@ -45,19 +48,5 @@ public class PlayerDmg : MonoBehaviour
         consolaComandos.panelReinicio.SetActive(true);
         anim.Play("Muerte");
         Destroy(gameObject, 3.20f);
-    }
-
-    private void OnTriggerEnter(Collider collider)
-    {
-
-        if (collider.gameObject.CompareTag("AtkBomb"))
-        {
-            actualvida -= 0.25f; //* mecanica tinoco: dmgC.dmgMultiplier; andre no jodas tkm
-        }
-
-        if (collider.gameObject.CompareTag("Lanza"))
-        {
-            actualvida -= 2.5f;
-        }
     }
 }

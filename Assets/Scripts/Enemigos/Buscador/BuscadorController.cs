@@ -17,6 +17,8 @@ public class BuscadorController : MonoBehaviour
 
 	[Header("AtaqueBasico")]
 	public GameObject basicoGO;
+	public GameObject hitboxPrefab;
+	public GameObject mordida;
 
 	public bool coPlay;
 	public bool ataco;
@@ -92,18 +94,20 @@ public class BuscadorController : MonoBehaviour
 		coPlay = true;
 		agent.isStopped = true;
 		ChangeColorPreAtk();
-		yield return new WaitForSecondsRealtime(1.75f);
+		yield return new WaitForSeconds(1.25f); // cambiar por anim.
 		ChangeColorAtk();
 		basicoGO.SetActive(true);
 		if(playerDistance <= atkRange)
         {
 			ataco = true;
-				if (ataco == true)
-				{
-					plyrDmg.actualvida -= 1.5f;
-				}
+			if (ataco == true)
+			{
+				//plyrDmg.actualvida -= 1.5f;
+				GameObject obj = Instantiate(hitboxPrefab);
+				obj.transform.position = mordida.transform.position;
+			}
 		}
-		yield return new WaitForSecondsRealtime(1f);
+		yield return new WaitForSeconds(1f);
 		agent.isStopped = false;
 		basicoGO.SetActive(false);
 		ChangeColorBack();
@@ -125,6 +129,14 @@ public class BuscadorController : MonoBehaviour
 	void ChangeColorBack()
 	{
 		dogRender.material.color = Color.white;
+	}
+
+    private void OnDrawGizmos()
+    {
+		Gizmos.color = Color.blue;
+		Gizmos.DrawWireSphere(transform.position,awareAI);
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, atkRange);
 	}
 }
 

@@ -13,16 +13,14 @@ TagManager:
   - DetectorBichoOUT
   - DetectorBuscadorOUT
   - Buscador
-  - AtaqueNormal
-  - AtaqueDuro
   - damageController
   - mesa
   - Guadana
   - Verdugo
-  - Lanza
   - SpawCrisalida
   - SpawJaulaAlmas
   - MousePos
+  - PlayerPivot
   layers:
   - Default
   - TransparentFX

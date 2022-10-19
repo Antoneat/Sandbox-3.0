@@ -8,11 +8,7 @@ public class PlayerDash : MonoBehaviour
     public bool canDash;
     public bool isDashing;
     public Vector3 orientation;
-
-    public bool upgradeDash;
-
-    [Header("ResetDash")]
-    public bool killedEnemy;
+    public float cooldown;
 
     [Header("Componentes")]
     [SerializeField] private Animator anim;
@@ -51,23 +47,17 @@ public class PlayerDash : MonoBehaviour
     {
         Debug.Log("Dashing");
         playerMovement.maxSpeed = dashNewSpeed;
-
-        if (upgradeDash == true)
-        {
-            Physics.IgnoreLayerCollision(3, 8, true);
-        }
+        Physics.IgnoreLayerCollision(3, 8, true);
     }
 
     public void FinishDash()
     {
         Debug.Log("Termino el Dash");
-        Invoke(nameof(DelayToDash), 0.4f);
+        Invoke(nameof(DelayToDash), cooldown);
         isDashing = false;
         playerMovement.maxSpeed = 7.2f;
 
         playerMovement.enabled = true;
-
-        killedEnemy = false;
 
         Physics.IgnoreLayerCollision(3, 8, false);
     }

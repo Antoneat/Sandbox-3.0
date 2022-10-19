@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1888268820277055678}
   - component: {fileID: 2119726176885463032}
   - component: {fileID: 2119726176885463039}
-  - component: {fileID: 2119726176885463036}
+  - component: {fileID: -550314445654320122}
   - component: {fileID: 2119726176885463035}
   - component: {fileID: 2653957783918534561}
   - component: {fileID: 7588889786042308275}
   m_Layer: 6
-  m_Name: Bombita
+  m_Name: Agitador
   m_TagString: Bombita
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,12 +86,12 @@ MonoBehaviour:
   destPoint: 0
   goal: {fileID: 0}
   playerDistance: 0
-  awareAI: 10
-  atkRange: 7
+  awareAI: 15
+  atkRange: 5
   basicoGO: {fileID: 2119726176608211605}
   coPlay: 0
   Bombita: {fileID: 2119726176885463028}
---- !u!114 &2119726176885463036
+--- !u!114 &-550314445654320122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,10 +100,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2119726176885463028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a66879c555ef04782c0e3f59ca8d4c, type: 3}
+  m_Script: {fileID: 11500000, guid: 73d37b0918fca124f9219e78f17be355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 0
+  life: 1
+  healAmount: 1
+  isBomb: 1
+  soulAmount: 0
 --- !u!195 &2119726176885463035
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -189,15 +192,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2231021458248293989, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2231021458248293989, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2231021458248293989, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2231021458248293989, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -239,13 +242,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2231021458248293989, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2231021458248293995, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
       propertyPath: m_Name
       value: Atknormal
       objectReference: {fileID: 0}
     - target: {fileID: 2231021458248293995, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
@@ -254,6 +261,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2231021458248293995, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
   m_PrefabInstance: {fileID: 260339649627393278}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3349402890763583613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119726176608211605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919e5f8998771f742b990db7717b3a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 0.25
+  modifier: 1
+  enemyType: 0
 --- !u!4 &2119726176608211611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2231021458248293989, guid: 0d6f2e8712e39aa4ba188cc5a7a6cc18, type: 3}
