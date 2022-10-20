@@ -5,11 +5,18 @@ using UnityEngine;
 public class EnemyLife : MonoBehaviour
 {
     public float life;
+    public float maxLife;
 
     public float healAmount;
     public bool isBomb;
 
     public int soulAmount;
+
+
+    private void Start()
+    {
+        maxLife = life;
+    }
 
     public void TakeDmg(float dmg)
     {
