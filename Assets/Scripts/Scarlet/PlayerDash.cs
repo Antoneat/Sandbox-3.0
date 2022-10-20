@@ -7,7 +7,6 @@ public class PlayerDash : MonoBehaviour
     public float dashNewSpeed;
     public bool canDash;
     public bool isDashing;
-    public Vector3 orientation;
     public float cooldown;
 
     [Header("Componentes")]
@@ -32,14 +31,7 @@ public class PlayerDash : MonoBehaviour
             canDash = false;
             isDashing = true;
             anim.Play("Dash");
-
-            playerAttackCombo.isAttacking = false;
-            playerAttackCombo.armaColliderRight.enabled = false;
-            playerAttackCombo.combo = 0;
-            playerHardAttack.isHardAttacking = false;
-            playerHardAttack.armaCollider1.enabled = false;
-            playerHardAttack.armaCollider2.enabled = false;
-            playerHardAttack.hardCombo = 0;
+            ResetAttacks();
         }
     }
 
@@ -65,5 +57,17 @@ public class PlayerDash : MonoBehaviour
     public void DelayToDash()
     {
         canDash = true;
+    }
+
+    public void ResetAttacks()
+    {
+        playerAttackCombo.isAttacking = false;
+        playerAttackCombo.ataqueBasico1Collider.SetActive(false);
+        playerAttackCombo.ataqueBasico2Collider.SetActive(false);
+        playerAttackCombo.ataqueBasico3Collider.SetActive(false);
+        playerAttackCombo.combo = 0;
+        playerHardAttack.isHardAttacking = false;
+        playerHardAttack.ataqueHardCollider.enabled = false;
+        playerHardAttack.hardCombo = 0;
     }
 }

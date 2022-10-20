@@ -46552,21 +46552,21 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.23333333
-    functionName: ActivatingCollsBasicAttack
+  - time: 0.2
+    functionName: BasicAttack2Active
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.36666667
-    functionName: DeactivatingCollsBasicAttack
+    functionName: BasicAttackDeactiveColl
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.53333336
+  - time: 0.73333335
     functionName: Attacking
     data: 
     objectReferenceParameter: {fileID: 0}

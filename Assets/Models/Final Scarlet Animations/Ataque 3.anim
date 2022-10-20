@@ -79475,14 +79475,14 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.5833333
-    functionName: ActivatingCollsBasicAttack
+    functionName: BasicAttack3Active
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.25
-    functionName: DeactivatingCollsBasicAttack
+    functionName: BasicAttackDeactiveColl
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

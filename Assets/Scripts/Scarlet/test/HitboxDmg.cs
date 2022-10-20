@@ -9,7 +9,7 @@ public class HitboxDmg : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<EnemyLife>() && other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.GetComponent<EnemyLife>() && (other.gameObject.CompareTag("Bombita") || other.gameObject.CompareTag("Buscador") || other.gameObject.CompareTag("Verdugo")))
         {
             other.gameObject.GetComponent<EnemyLife>().TakeDmg(dmg * modifier);
         }

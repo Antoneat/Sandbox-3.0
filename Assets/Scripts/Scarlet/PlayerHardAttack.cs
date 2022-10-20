@@ -9,15 +9,11 @@ public class PlayerHardAttack : MonoBehaviour
 
     [Header("Components")]
     public Animator anim;
-    public BoxCollider armaCollider1;
-    public BoxCollider armaCollider2;
+    public Collider ataqueHardCollider;
     private PlayerMovement playerMovement;
     private PlayerDash playerDash;
     private PlayerAttackCombo playerAttackCombo;
     [SerializeField] private GameObject mousePos;
-
-    // public AudioSource audio;
-    // public AudioClip[] sonido;
 
     void Start()
     {
@@ -29,13 +25,11 @@ public class PlayerHardAttack : MonoBehaviour
         playerAttackCombo = GetComponent<PlayerAttackCombo>();
         playerMovement = GetComponent<PlayerMovement>();
         playerDash = GetComponent<PlayerDash>();
-
-        // audio = GetComponent<AudioSouce>();
     }
 
     void Update()
     {
-        HardCombo();
+        //HardCombo();
         mousePos = GameObject.FindGameObjectWithTag("MousePos");
     }
 
@@ -53,8 +47,6 @@ public class PlayerHardAttack : MonoBehaviour
             playerAttackCombo.combo = 0;
 
             anim.Play("AtaqueFuerte" + hardCombo);
-            // audio.clip = sonido[combo];
-            // audio.Play();
         }
     }
 
@@ -67,29 +59,24 @@ public class PlayerHardAttack : MonoBehaviour
     {
         Debug.Log("AtacandoHARD");
         isHardAttacking = false;
-        //armaCollider1.enabled = true;
-        //armaCollider2.enabled = true;
         if (hardCombo < 3) hardCombo++;
     }
 
     public void ActivatingCollsHardAttack()
     {
-        armaCollider1.enabled = true;
-        armaCollider2.enabled = true;
+        ataqueHardCollider.enabled = true;
     }
 
     public void DeactivatingCollsHardAttack()
     {
-        armaCollider1.enabled = false;
-        armaCollider2.enabled = false;
+        ataqueHardCollider.enabled = false;
     }
 
     public void AfterHardAttacking()
     {
         Debug.Log("Termino de atacarHARD");
         isHardAttacking = false;
-        armaCollider1.enabled = false;
-        armaCollider2.enabled = false;
+        ataqueHardCollider.enabled = false;
 
         playerMovement.maxSpeed = 7.2f;
         playerMovement.enabled = true;

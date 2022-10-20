@@ -12,6 +12,8 @@ public class PlayerDmg : MonoBehaviour
 
     public int actualSouls;
 
+    public PlayerMovement playerMovement;
+
     [Header("Animator")]
     [SerializeField] private Animator anim;
 
@@ -20,6 +22,7 @@ public class PlayerDmg : MonoBehaviour
         //dmgC = GameObject.FindGameObjectWithTag("damageController").GetComponent<DmgController>();
         actualvida = maxVida;
         anim = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -28,7 +31,11 @@ public class PlayerDmg : MonoBehaviour
 
         if (actualvida <= 0)
         {
-            Dead();
+            playerMovement.maxSpeed = 0;
+            anim.Play("Morir");
+            Invoke(nameof(Dead), 3.20f);
+            //Destroy(gameObject, 3.20f);
+            
         }
 
         if (actualvida > maxVida)
@@ -46,7 +53,5 @@ public class PlayerDmg : MonoBehaviour
     public void Dead()
     {
         consolaComandos.panelReinicio.SetActive(true);
-        anim.Play("Muerte");
-        Destroy(gameObject, 3.20f);
     }
 }
