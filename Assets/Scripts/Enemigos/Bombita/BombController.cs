@@ -94,10 +94,18 @@ public class BombController : MonoBehaviour
 		agent.isStopped = true;
 		ChangeColorPreAtk();
 		yield return new WaitForSeconds(1f);
-		agent.isStopped = true;
-		//ChangeColorAtk();
-		basicoGO.SetActive(true);
-		Destroy(gameObject,1);
+		if (playerDistance < atkRange)
+		{
+			basicoGO.SetActive(true);
+			Destroy(gameObject, 1);
+		}
+		else if (playerDistance >= atkRange)
+		{
+			basicoGO.SetActive(false);
+			agent.isStopped = false;
+			ChangeColorPostAtk();
+		}
+		agent.isStopped = false;
 		coPlay = false;
 		yield break;
 	}
@@ -105,6 +113,10 @@ public class BombController : MonoBehaviour
 	void ChangeColorPreAtk()
 	{
 		bombitaRender.material.color = Color.yellow;
+	}
+	void ChangeColorPostAtk()
+	{
+		bombitaRender.material.color = Color.white;
 	}
 
 	private void OnTriggerEnter(Collider collider)
