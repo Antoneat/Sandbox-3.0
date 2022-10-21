@@ -602,7 +602,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29490
+  m_Name: pb_Mesh39730
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7065,7 +7065,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31382
+  m_Name: pb_Mesh41630
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11901,7 +11901,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31636
+  m_Name: pb_Mesh41884
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13385,7 +13385,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31044
+  m_Name: pb_Mesh41294
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15776,7 +15776,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh29170
+  m_Name: pb_Mesh39410
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18658,7 +18658,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31800
+  m_Name: pb_Mesh42048
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -45142,7 +45142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521580a6244d2ff4b8b4fa413b59bc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 7833821203117478275, guid: 4f743a30424d7ee418968b0b7ba1ef75, type: 3}
+  enemy: {fileID: 4906008913135897410, guid: b14e2c8afb9b30d49901e18f487d836d, type: 3}
   tpBicho: {x: 5.5, y: 1, z: 33.8}
 --- !u!65 &1861172159
 BoxCollider:
@@ -59513,7 +59513,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   maxSpeed: 7.2
-  canMove: 1
   lastTransform: {x: 0, y: 0, z: 0}
   rgbd: {fileID: 7644030370088250152}
   playerTransform: {fileID: 7644030370088250149}
@@ -59598,7 +59597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981883867f5ce16429b7cbf67d441aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hardCombo: 0
   isHardAttacking: 0
   rotationSpeed: 16
   anim: {fileID: 4392454170151858527}
@@ -59616,8 +59614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7410b955979cec747808a6ad367aec7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combo: 0
   isAttacking: 0
+  continueAttack: 0
   nextAttack: 0
   rotationSpeed: 16
   anim: {fileID: 4392454170151858527}

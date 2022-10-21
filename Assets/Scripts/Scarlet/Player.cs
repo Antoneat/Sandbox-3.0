@@ -614,9 +614,21 @@ public class Player : MonoBehaviour
             //lifeBar.SetVida(actualvida);
         }
 
+        if (collider.gameObject.CompareTag("basico1"))
+        {
+            //actualvida -= yp.basico1DMG;
+            //lifeBar.SetVida(actualvida);
+        }
+
+        if (collider.gameObject.CompareTag("basico3"))
+        {
+            //actualvida -= yp.basico3DMG;
+            //lifeBar.SetVida(actualvida);
+        }
+
         if (collider.gameObject.CompareTag("especial"))
         {
-           // actualvida -= yp.especialDMG;
+            //actualvida -= yp.especialDMG;
             //lifeBar.SetVida(actualvida);
         }
 
