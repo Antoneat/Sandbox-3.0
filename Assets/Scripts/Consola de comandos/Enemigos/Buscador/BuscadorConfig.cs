@@ -12,26 +12,56 @@ public class BuscadorConfig : MonoBehaviour
     public float awareAI_Conf;
     public float atkRange_Conf;
 
+    public float life_Config;
+    public float healAmount_Config;
+    public float soulAmount_Config;
+
+    public float dmg_Config;
+
     [Header("Textos")]
     public TMP_Text text_AwareAi;
     public TMP_Text text_AtqRange;
+
+    public TMP_Text text_Life;
+    public TMP_Text text_HealtAmount;
+    public TMP_Text text_SoulAmount;
+
+    public TMP_Text text_Dmg;
 
     private void Awake()
     {
         awareAI_Conf = managerBuscador.awareAI_SO;
         atkRange_Conf = managerBuscador.atkRange_SO;
+
+        life_Config = managerBuscador.life_SO;
+        healAmount_Config = managerBuscador.healAmount_SO;
+        soulAmount_Config = managerBuscador.soulAmount_SO;
+
+        dmg_Config = managerBuscador.dmg_SO;
     }
 
     public void Start()
     {
         text_AwareAi.text = "AwareAI:" + awareAI_Conf;
         text_AtqRange.text = "AtqRange:" + atkRange_Conf;
+
+        text_Life.text = "Vida:" + life_Config;
+        text_HealtAmount.text = "Cura:" + healAmount_Config;
+        text_SoulAmount.text = "Almas:" + soulAmount_Config;
+
+        text_Dmg.text = "Daño:" + dmg_Config;
     }
 
     public void Update()
     {
         managerBuscador.awareAI_SO = awareAI_Conf;
         managerBuscador.atkRange_SO = atkRange_Conf;
+
+        managerBuscador.life_SO = life_Config;
+        managerBuscador.healAmount_SO = healAmount_Config;
+        managerBuscador.soulAmount_SO = soulAmount_Config;
+
+        managerBuscador.dmg_SO = dmg_Config;
     }
 
 
@@ -85,6 +115,39 @@ public class BuscadorConfig : MonoBehaviour
 
         text_AtqRange.text = "AtqRange:" + atkRange_Conf;
         managerBuscador.atkRange_SO = atkRange_Conf;
+    }
+    #endregion
+
+    #region Vida
+    public void MenosUnoLife()
+    {
+        life_Config--;
+
+        text_Life.text = "Vida:" + life_Config;
+        managerBuscador.life_SO = life_Config;
+
+        managerBuscador.OnValueChange.Invoke();
+    }
+    public void ChangeLife(string life)
+    {
+        int lifeNew = Int32.Parse(life);
+        atkRange_Conf = lifeNew;
+
+        text_Life.text = "Vida:" + life;
+
+        managerBuscador.life_SO = life_Config = lifeNew;
+
+        managerBuscador.OnValueChange?.Invoke();
+    }
+
+    public void MasUnoLife()
+    {
+        life_Config++;
+
+        text_Life.text = "Vida:" + life_Config;
+        managerBuscador.life_SO = life_Config;
+
+        managerBuscador.OnValueChange.Invoke();
     }
     #endregion
 }

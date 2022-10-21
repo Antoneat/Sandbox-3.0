@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyLife : MonoBehaviour
 {
+    public VariableManagerBuscador managerBuscador;
+
     public float life;
     public float maxLife;
 
@@ -15,7 +17,16 @@ public class EnemyLife : MonoBehaviour
 
     private void Start()
     {
+        ChangeLifeBuscador();
+
         maxLife = life;
+
+        managerBuscador.OnValueChange += ChangeLifeBuscador;
+    }
+
+    void ChangeLifeBuscador()
+    {
+        life = managerBuscador.life_SO;
     }
 
     public void TakeDmg(float dmg)
