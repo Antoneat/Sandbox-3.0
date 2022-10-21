@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class PlayerAttackCombo : MonoBehaviour
 {
-    public int combo;
     public bool isAttacking;
+
+    public bool continueAttack;
+    public bool nextAttack; // pase a la sgte anim
+
+    public float rotationSpeed;
+    private Quaternion rotateTo;
+    private Vector3 direction;
 
     [Header("Components")]
     public Animator anim;
@@ -19,8 +25,9 @@ public class PlayerAttackCombo : MonoBehaviour
 
     void Start()
     {
-        combo = 0;
         isAttacking = false;
+        nextAttack = false;
+        continueAttack = false;
 
         anim = GetComponent<Animator>();
 
@@ -33,47 +40,83 @@ public class PlayerAttackCombo : MonoBehaviour
     {
         Combo();
         mousePos = GameObject.FindGameObjectWithTag("MousePos");
+
+        if (isAttacking == true && Input.GetMouseButtonDown(0))
+        {
+            nextAttack = true;
+            direction = (mousePos.transform.position - transform.position).normalized;
+        }
+
+        if (nextAttack == true)
+        {
+            anim.SetBool("ContinueCombo", true);
+            continueAttack = true;
+        }
+        else if(nextAttack == false)
+        {
+            anim.SetBool("ContinueCombo", false);
+            continueAttack = false;
+        }
+
+        if (nextAttack == false && playerDash.isDashing == false && isAttacking == false)
+        {
+            playerMovement.maxSpeed = 7.2f;
+        }
     }
 
     public void Combo()
     {
         if (Input.GetMouseButtonDown(0) && isAttacking == false && playerHardAttack.isHardAttacking == false && playerDash.isDashing == false)
         {
-            isAttacking = true;
-
-            playerMovement.playerTransform.LookAt(mousePos.transform.position);
+            direction = (mousePos.transform.position - transform.position).normalized;
 
             playerMovement.lastTransform = new Vector3(mousePos.transform.position.x, 0, mousePos.transform.position.z);
 
             Vector3.MoveTowards(transform.position, mousePos.transform.position, 1f);
 
-            playerHardAttack.hardCombo = 0;
+            anim.SetTrigger("StartCombo");
+        }
 
-            anim.Play("AtaqueBasico" + combo);
+        //MOVE
+        Vector3.MoveTowards(transform.position, mousePos.transform.position, 2f * Time.deltaTime);
+
+        if (isAttacking)
+        {
+            //ROTATION
+            rotateTo = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotateTo, rotationSpeed * Time.deltaTime);
         }
     }
 
     public void StopMovement()
     {
+        //playerMovement.enabled = false;
         playerMovement.maxSpeed = 0f;
+        isAttacking = true;
     }
 
-    public void Attacking() // Cambiar por un bool para cuando termine la anim, cambie al sgte
+    public void Attacking()
     {
         Debug.Log("Atacando");
-        isAttacking = false;
-        if (combo < 3) combo++;
+        isAttacking = true;
+        continueAttack = false;
     }
+
     public void AfterAttacking()
     {
         Debug.Log("Termino de atacar");
-        isAttacking = false;
+        //isAttacking = false;
+        nextAttack = false;
 
-        playerMovement.maxSpeed = 7.2f;
-        playerMovement.enabled = true;
-
-        combo = 0;
+        anim.ResetTrigger("StartCombo");
     }
+    public void FinalBasicAttack()
+    {
+        nextAttack = false;
+        isAttacking = false;
+        continueAttack = false;
+    }
+
 
     #region Ataques 1, 2 y 3
     public void BasicAttack1Active()

@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
+        
         rgbd.velocity = new Vector3(horizontal * speed * Time.fixedDeltaTime, 0, vertical * speed * Time.fixedDeltaTime);
 
         if (rgbd.velocity.magnitude > maxSpeed)
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (velocityOfMovement < 0.0f)
-        {
+        { 
             velocityOfMovement = 0.0f;
         }
 

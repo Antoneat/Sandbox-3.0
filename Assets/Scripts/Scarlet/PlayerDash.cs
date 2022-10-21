@@ -59,15 +59,17 @@ public class PlayerDash : MonoBehaviour
         canDash = true;
     }
 
+    #region No ver :D
     public void ResetAttacks()
     {
         playerAttackCombo.isAttacking = false;
+        playerAttackCombo.continueAttack = false;
+        playerAttackCombo.nextAttack = false;
         playerAttackCombo.ataqueBasico1Collider.SetActive(false);
         playerAttackCombo.ataqueBasico2Collider.SetActive(false);
         playerAttackCombo.ataqueBasico3Collider.SetActive(false);
-        playerAttackCombo.combo = 0;
         playerHardAttack.isHardAttacking = false;
         playerHardAttack.ataqueHardCollider.enabled = false;
-        playerHardAttack.hardCombo = 0;
     }
+    #endregion
 }

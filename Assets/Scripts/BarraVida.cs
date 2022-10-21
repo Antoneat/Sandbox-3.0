@@ -13,11 +13,6 @@ public class BarraVida : MonoBehaviour
 
     public float vidaMax;
 
-
-    private void Start()
-    {
-        
-    }
     void Update()
     {
         playerDmg = FindObjectOfType<PlayerDmg>();

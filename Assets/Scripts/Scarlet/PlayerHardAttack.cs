@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerHardAttack : MonoBehaviour
 {
-    public int hardCombo;
     public bool isHardAttacking;
+
+    public float rotationSpeed;
+    private Quaternion rotateTo;
+    private Vector3 direction;
 
     [Header("Components")]
     public Animator anim;
@@ -17,7 +20,6 @@ public class PlayerHardAttack : MonoBehaviour
 
     void Start()
     {
-        hardCombo = 0;
         isHardAttacking = false;
 
         anim = GetComponent<Animator>();
@@ -39,27 +41,30 @@ public class PlayerHardAttack : MonoBehaviour
         {
             isHardAttacking = true;
 
-            playerMovement.playerTransform.LookAt(mousePos.transform.position);
+            direction = (mousePos.transform.position - transform.position).normalized;
+
             playerMovement.lastTransform = new Vector3(mousePos.transform.position.x, 0, mousePos.transform.position.z);
 
             Vector3.MoveTowards(transform.position, mousePos.transform.position, 1f);
 
-            playerAttackCombo.combo = 0;
-
-            anim.Play("AtaqueFuerte" + hardCombo);
+            anim.Play("AtaqueFuerte");
         }
-    }
+        //MOVE
+        Vector3.MoveTowards(transform.position, mousePos.transform.position, 2f * Time.deltaTime);
 
-    public void StopMovement()
-    {
-        playerMovement.maxSpeed = 0f;
+        if (isHardAttacking)
+        {
+            //ROTATION
+
+            rotateTo = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotateTo, rotationSpeed * Time.deltaTime);
+        }
     }
 
     public void HardAttacking()
     {
         Debug.Log("AtacandoHARD");
         isHardAttacking = false;
-        if (hardCombo < 3) hardCombo++;
     }
 
     public void ActivatingCollsHardAttack()
@@ -80,7 +85,5 @@ public class PlayerHardAttack : MonoBehaviour
 
         playerMovement.maxSpeed = 7.2f;
         playerMovement.enabled = true;
-
-        hardCombo = 0;
     }
 }
