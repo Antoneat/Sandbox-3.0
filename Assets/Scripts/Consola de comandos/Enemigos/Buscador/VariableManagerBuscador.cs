@@ -15,7 +15,7 @@ public class VariableManagerBuscador : ScriptableObject
 
     public float life_SO;
     public float healAmount_SO;
-    public float soulAmount_SO;
+    public int soulAmount_SO;
 
     public float dmg_SO;
 

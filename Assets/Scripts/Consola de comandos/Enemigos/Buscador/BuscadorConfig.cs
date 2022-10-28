@@ -14,7 +14,7 @@ public class BuscadorConfig : MonoBehaviour
 
     public float life_Config;
     public float healAmount_Config;
-    public float soulAmount_Config;
+    public int soulAmount_Config;
 
     public float dmg_Config;
 
@@ -131,7 +131,7 @@ public class BuscadorConfig : MonoBehaviour
     public void ChangeLife(string life)
     {
         int lifeNew = Int32.Parse(life);
-        atkRange_Conf = lifeNew;
+        life_Config = lifeNew;
 
         text_Life.text = "Vida:" + life;
 
@@ -146,6 +146,105 @@ public class BuscadorConfig : MonoBehaviour
 
         text_Life.text = "Vida:" + life_Config;
         managerBuscador.life_SO = life_Config;
+
+        managerBuscador.OnValueChange.Invoke();
+    }
+    #endregion
+    
+    #region HealtAmount
+    public void MenosUnoHealtAmount()
+    {
+        healAmount_Config--;
+
+        text_HealtAmount.text = "Cura:" + healAmount_Config;
+        managerBuscador.healAmount_SO = healAmount_Config;
+
+        managerBuscador.OnValueChange.Invoke();
+    }
+    public void ChangeHealtAmount(string healAmount)
+    {
+        int healAmountNew = Int32.Parse(healAmount);
+        healAmount_Config = healAmountNew;
+
+        text_HealtAmount.text = "Cura:" + healAmount;
+
+        managerBuscador.healAmount_SO = healAmount_Config = healAmountNew;
+
+        managerBuscador.OnValueChange?.Invoke();
+    }
+
+    public void MasUnoHealtAmount()
+    {
+        healAmount_Config++;
+
+        text_HealtAmount.text = "Cura:" + healAmount_Config;
+        managerBuscador.healAmount_SO = healAmount_Config;
+
+        managerBuscador.OnValueChange.Invoke();
+    }
+    #endregion
+    
+    #region SoulAmount
+    public void MenosUnoSoulAmount()
+    {
+        soulAmount_Config--;
+
+        text_SoulAmount.text = "Almas:" + soulAmount_Config;
+        managerBuscador.soulAmount_SO = soulAmount_Config;
+
+        managerBuscador.OnValueChange.Invoke();
+    }
+    public void ChangeSoulAmount(string soulAmount)
+    {
+        int soulAmountNew = Int32.Parse(soulAmount);
+        healAmount_Config = soulAmountNew;
+
+        text_SoulAmount.text = "Almas:" + soulAmount;
+
+        managerBuscador.soulAmount_SO = soulAmount_Config = soulAmountNew;
+
+        managerBuscador.OnValueChange?.Invoke();
+    }
+
+    public void MasUnoSoulAmount()
+    {
+        soulAmount_Config++;
+
+        text_SoulAmount.text = "Almas:" + soulAmount_Config;
+        managerBuscador.soulAmount_SO = soulAmount_Config;
+
+        managerBuscador.OnValueChange.Invoke();
+    }
+    #endregion
+    
+    #region DMG
+    public void MenosUnoDmg()
+    {
+        dmg_Config--;
+
+        text_Dmg.text = "Daño:" + dmg_Config;
+        managerBuscador.dmg_SO = dmg_Config;
+
+        managerBuscador.OnValueChange.Invoke();
+    }
+    public void ChangeDmg(string dmg)
+    {
+        int dmgNew = Int32.Parse(dmg);
+        dmg_Config = dmgNew;
+
+        text_Dmg.text = "Daño:" + dmg;
+
+        managerBuscador.dmg_SO = dmg_Config = dmgNew;
+
+        managerBuscador.OnValueChange?.Invoke();
+    }
+
+    public void MasUnoDmg()
+    {
+        dmg_Config++;
+
+        text_Dmg.text = "Daño:" + dmg_Config;
+        managerBuscador.dmg_SO = dmg_Config;
 
         managerBuscador.OnValueChange.Invoke();
     }

@@ -13,5 +13,10 @@ MonoBehaviour:
   m_Name: ManagerBombitaSO
   m_EditorClassIdentifier: 
   bombController: {fileID: 2119726176885463039, guid: 81ad12a0bc2f1bd40b84a5717e34ea48, type: 3}
-  awareAI_SO: 10
-  atkRange_SO: 7
+  enemyLife: {fileID: -550314445654320122, guid: 81ad12a0bc2f1bd40b84a5717e34ea48, type: 3}
+  awareAI_SO: 15
+  atkRange_SO: 5
+  life_SO: 1
+  healAmount_SO: 1
+  soulAmount_SO: 0
+  dmg_SO: 0

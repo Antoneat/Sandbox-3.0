@@ -354,7 +354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d37b0918fca124f9219e78f17be355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  managerBombita: {fileID: 11400000, guid: 497ee3f073bd1074791beea0e67175bd, type: 2}
   managerBuscador: {fileID: 11400000, guid: f018c19542338b648a8ea392d6bb009b, type: 2}
+  managerVerdugo: {fileID: 11400000, guid: 38a022c56b4d47d4eb9a6c353c75b945, type: 2}
   life: 6
   maxLife: 0
   healAmount: 3

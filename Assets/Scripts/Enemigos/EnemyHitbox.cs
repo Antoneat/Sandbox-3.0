@@ -11,10 +11,28 @@ public enum EnemyType
 
 public class EnemyHitbox : MonoBehaviour
 {
+    //public VariableManagerBombita managerBombita;
+    //public VariableManagerBuscador managerBuscador;
+    //public VariableManagerVerdugo managerVerdugo;
+
     public float dmg; // Cantidad de dmg dado para el player.
     public float modifier = 1f;
     public EnemyType enemyType;
 
+    /*private void Start()
+    {
+        //AGITADOR
+        ChangeDmgAgitador();
+        managerBombita.OnValueChange += ChangeDmgAgitador;
+
+        //BUSCADOR
+        ChangeDmgBuscador();
+        managerBuscador.OnValueChange += ChangeDmgBuscador;
+
+        //VERDUGO
+        ChangeDmgVerdugo();
+        managerVerdugo.OnValueChange += ChangeDmgVerdugo;
+    }*/
     void Update()
     {
         if(enemyType == EnemyType.buscador)
@@ -59,4 +77,22 @@ public class EnemyHitbox : MonoBehaviour
             }
         }
     }
+
+    /*#region CambiarDano
+    void ChangeDmgAgitador()
+    {
+        dmg = managerBombita.life_SO;
+    }
+
+    void ChangeDmgBuscador()
+    {
+        dmg = managerBuscador.life_SO;
+    }
+
+    void ChangeDmgVerdugo()
+    {
+        dmg = managerVerdugo.life_SO;
+    }
+
+    #endregion*/
 }
