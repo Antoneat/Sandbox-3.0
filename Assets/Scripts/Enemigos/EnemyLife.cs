@@ -12,14 +12,17 @@ public class EnemyLife : MonoBehaviour
     public float maxLife;
 
     public float healAmount;
-    public bool isBomb;
+    public bool isAgitador, isBuscador, isVerdugo;
 
     public int soulAmount;
 
+    private YaldaPasiva yaldaPasiva;
 
     private void Start()
     {
         maxLife = life;
+
+        yaldaPasiva = GameObject.FindGameObjectWithTag("Yalda").GetComponent<YaldaPasiva>();
 
         //AGITADOR
         ChangeLifeAgitador();
@@ -110,12 +113,25 @@ public class EnemyLife : MonoBehaviour
 
         if(life <= 0)
         {
+            
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.GetComponent<PlayerDmg>().GainLife(healAmount);
 
-            if (!isBomb)
+            if (isBuscador)
             {
                 player.GetComponent<PlayerDmg>().GainSoul(soulAmount);
+                yaldaPasiva.buscador.Remove(yaldaPasiva.buscadorPrefab);
+            }
+
+            if(isVerdugo)
+            {
+                player.GetComponent<PlayerDmg>().GainSoul(soulAmount);
+                yaldaPasiva.verdugo.Remove(yaldaPasiva.verdugoPrefab);
+            }
+
+            if(isAgitador)
+            {
+                yaldaPasiva.agitador.Remove(yaldaPasiva.agitadorPrefab);
             }
 
             Destroy(gameObject);

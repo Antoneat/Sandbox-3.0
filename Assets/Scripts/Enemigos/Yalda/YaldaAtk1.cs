@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class YaldaAtk1 : MonoBehaviour
 {
-
-	public bool coPlay;
+	public bool corrutinePlay;
 	public bool isAtk1;
 
 	[Header("FeedbackVisual")]
@@ -13,24 +12,15 @@ public class YaldaAtk1 : MonoBehaviour
 	Renderer yaldaRender;
 
 	[Header("Ataque1")]
-	[SerializeField] YaldaMov yam;
+	[SerializeField] YaldaMov yaldaMov;
 	public Animator anim;
-	public Collider mano1collider;
-	public Collider mano2collider;
-
+	public Collider mano1collider, mano2collider;
 
 	void Start()
 	{
 		yaldaRender = yalda.GetComponent<Renderer>();
 		anim = GetComponent<Animator>();
 	}
-
-
-    public void Attack1()
-    {
-        anim.Play("atk1");
-		isAtk1 = true;
-    }
 
 	public void Attack1Collider()
 	{
@@ -49,26 +39,35 @@ public class YaldaAtk1 : MonoBehaviour
 
 	public IEnumerator AtaqueBasico()
 	{
-		coPlay = true;
-		yam.agent.isStopped = true;
+		corrutinePlay = true;
+		yaldaMov.agent.isStopped = true;
 		ChangeColorPreAtk();
 
 
 		yield return new WaitForSeconds(1f);
 
 		Attack1();
+
+		ChangeColorDuringAtk();
 		
-		yam.agent.isStopped = false;
-		coPlay = false;
+		yaldaMov.agent.isStopped = false;
+		corrutinePlay = false;
 		yield break;
 	}
+
+    public void Attack1()
+    {
+        anim.Play("atk1");
+		isAtk1 = true;
+    }
 
 	void ChangeColorPreAtk()
 	{
 		yaldaRender.material.color = Color.yellow;
 	}
-	void ChangeColorPostAtk()
+
+	void ChangeColorDuringAtk()
 	{
-		yaldaRender.material.color = Color.white;
+		yaldaRender.material.color = Color.red;
 	}
 }
