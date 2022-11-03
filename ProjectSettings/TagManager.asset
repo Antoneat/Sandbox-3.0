@@ -21,6 +21,11 @@ TagManager:
   - SpawJaulaAlmas
   - MousePos
   - PlayerPivot
+  - AtaqueDuro
+  - AtaqueNormal
+  - Atq1
+  - Atq2
+  - Atq3
   layers:
   - Default
   - TransparentFX
