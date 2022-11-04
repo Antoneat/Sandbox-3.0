@@ -12,6 +12,6 @@ public class HitboxDmg : MonoBehaviour
         if (other.gameObject.GetComponent<EnemyLife>() && (other.gameObject.CompareTag("Bombita") || other.gameObject.CompareTag("Buscador") || other.gameObject.CompareTag("Verdugo")))
         {
             other.gameObject.GetComponent<EnemyLife>().TakeDmg(dmg * modifier);
-        }
+        } 
     }
 }
