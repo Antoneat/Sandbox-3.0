@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 7772043335191673751}
   m_Layer: 0
   m_Name: 'Jaula de almas '
-  m_TagString: Untagged
+  m_TagString: JaulaAlmas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

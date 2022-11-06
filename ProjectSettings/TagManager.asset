@@ -27,6 +27,8 @@ TagManager:
   - Atq2
   - Atq3
   - Yalda
+  - JaulaAlmas
+  - Crisalida
   layers:
   - Default
   - TransparentFX
