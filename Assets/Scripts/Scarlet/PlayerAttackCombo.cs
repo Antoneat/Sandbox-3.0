@@ -27,14 +27,14 @@ public class PlayerAttackCombo : MonoBehaviour
     void Start()
     {
         isAttacking = false;
-        nextAttack = false;
         continueAttack = false;
+        nextAttack = false;
 
         anim = GetComponent<Animator>();
 
         playerMovement = GetComponent<PlayerMovement>();
-        playerHardAttack = GetComponent<PlayerHardAttack>();
         playerDash = GetComponent<PlayerDash>();
+        playerHardAttack = GetComponent<PlayerHardAttack>();
     }
 
     void Update()
@@ -59,7 +59,7 @@ public class PlayerAttackCombo : MonoBehaviour
             continueAttack = false;
         }
 
-        if (nextAttack == false && playerDash.isDashing == false && isAttacking == false)
+        if (nextAttack == false && playerDash.isDashing == false && isAttacking == false && playerHardAttack.isHardAttacking == false)
         {
             playerMovement.maxSpeed = 7.2f;
         }
@@ -101,7 +101,6 @@ public class PlayerAttackCombo : MonoBehaviour
 
     public void Attacking()
     {
-        Debug.Log("Atacando");
         isAttacking = true;
         continueAttack = false;
         
@@ -111,7 +110,6 @@ public class PlayerAttackCombo : MonoBehaviour
 
     public void AfterAttacking()
     {
-        Debug.Log("Termino de atacar");
         //isAttacking = false;
         nextAttack = false;
 
@@ -139,12 +137,14 @@ public class PlayerAttackCombo : MonoBehaviour
         ataqueBasico2Collider.SetActive(true);
         ataqueBasico3Collider.SetActive(false);
     }
+    
     public void BasicAttack3Active()
     {
         ataqueBasico1Collider.SetActive(false);
         ataqueBasico2Collider.SetActive(false);
         ataqueBasico3Collider.SetActive(true);
     }
+
     public void BasicAttackDeactiveColl()
     {
         ataqueBasico1Collider.SetActive(false);

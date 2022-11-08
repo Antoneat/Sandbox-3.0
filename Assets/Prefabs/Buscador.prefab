@@ -360,7 +360,9 @@ MonoBehaviour:
   life: 6
   maxLife: 0
   healAmount: 3
-  isBomb: 0
+  isAgitador: 0
+  isBuscador: 0
+  isVerdugo: 0
   soulAmount: 1
 --- !u!33 &6710773294821112150
 MeshFilter:

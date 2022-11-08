@@ -68,8 +68,9 @@ public class PlayerDash : MonoBehaviour
         playerAttackCombo.ataqueBasico1Collider.SetActive(false);
         playerAttackCombo.ataqueBasico2Collider.SetActive(false);
         playerAttackCombo.ataqueBasico3Collider.SetActive(false);
+
         playerHardAttack.isHardAttacking = false;
-        playerHardAttack.ataqueHardCollider.enabled = false;
+        playerHardAttack.ataqueHardCollider.SetActive(false);
     }
     #endregion
 }
