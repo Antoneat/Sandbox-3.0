@@ -204,7 +204,9 @@ MonoBehaviour:
   life: 5
   maxLife: 0
   healAmount: 2
-  isBomb: 0
+  isAgitador: 0
+  isBuscador: 0
+  isVerdugo: 0
   soulAmount: 1
 --- !u!65 &7182538184246902578
 BoxCollider:

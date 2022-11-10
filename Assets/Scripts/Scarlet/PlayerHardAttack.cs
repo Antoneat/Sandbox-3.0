@@ -90,7 +90,7 @@ public class PlayerHardAttack : MonoBehaviour
 
     public void StopMovementHard()
     {
-        playerMovement.maxSpeed = 0f;
+        playerMovement.maxSpeed = 3f;
         isHardAttacking = true;
     }
 
@@ -109,6 +109,7 @@ public class PlayerHardAttack : MonoBehaviour
     public void FinalHardAttack()
     {
         //nextHardAttack = false;
+        playerMovement.maxSpeed = 7.2f;
         isHardAttacking = false;
         //continueHardAttack = false;
     }

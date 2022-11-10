@@ -6,6 +6,7 @@ public class PlayerAttackCombo : MonoBehaviour
 {
     public bool isAttacking;
 
+    public bool canImpulse;
     public bool continueAttack;
     public bool nextAttack; // pase a la sgte anim
 
@@ -61,8 +62,13 @@ public class PlayerAttackCombo : MonoBehaviour
 
         if (nextAttack == false && playerDash.isDashing == false && isAttacking == false && playerHardAttack.isHardAttacking == false)
         {
+            playerMovement.speedLimiter = 1;
             playerMovement.maxSpeed = 7.2f;
         }
+        if(canImpulse)
+		{
+            ForceMovement();
+		}
     }
 
     public void Combo()
@@ -95,7 +101,7 @@ public class PlayerAttackCombo : MonoBehaviour
     public void StopMovement()
     {
         //playerMovement.enabled = false;
-        playerMovement.maxSpeed = 0f;
+        playerMovement.speedLimiter = 0f;
         isAttacking = true;
     }
 
@@ -103,10 +109,25 @@ public class PlayerAttackCombo : MonoBehaviour
     {
         isAttacking = true;
         continueAttack = false;
-        
-        //MOVE
-        Vector3.MoveTowards(transform.position, mousePos.transform.position, 1f * Time.deltaTime);
+
+        //corrutina para activar el bool
+        StartCoroutine(UseForce(0.15f));
+        //Vector3.MoveTowards(transform.position, mousePos.transform.position, 1f * Time.deltaTime);
     }
+    
+    public IEnumerator UseForce(float time)
+	{
+        canImpulse = true;
+        yield return new WaitForSeconds(time);
+        canImpulse = false;
+        yield return null;
+	}
+
+    public void ForceMovement()
+	{
+        //impulso para las anims
+        playerMovement.rgbd.AddForce(transform.forward * 1.2f, ForceMode.Impulse);
+	}
 
     public void AfterAttacking()
     {
