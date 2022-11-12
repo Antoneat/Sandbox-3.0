@@ -37,8 +37,7 @@ public class PlayerDash : MonoBehaviour
 
     public void Dashing()
     {
-        Debug.Log("Dashing");
-        //toqué el speedlimiter
+        //toquï¿½ el speedlimiter
         playerMovement.speedLimiter = 1;
         playerMovement.maxSpeed = dashNewSpeed;
         Physics.IgnoreLayerCollision(3, 8, true);
@@ -46,7 +45,6 @@ public class PlayerDash : MonoBehaviour
 
     public void FinishDash()
     {
-        Debug.Log("Termino el Dash");
         Invoke(nameof(DelayToDash), cooldown);
         isDashing = false;
         playerMovement.maxSpeed = 7.2f;

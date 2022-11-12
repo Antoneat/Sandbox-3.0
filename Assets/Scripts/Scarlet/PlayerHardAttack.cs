@@ -120,6 +120,11 @@ public class PlayerHardAttack : MonoBehaviour
         ataqueHardCollider.SetActive(true);
     }
 
+    public void DeactivatingCollsHardAttack()
+    {
+        ataqueHardCollider.SetActive(false);
+    }
+
     // public void HardAttack2Active()
     // {
     //     ataqueHardCollider.SetActive(true);
@@ -129,11 +134,6 @@ public class PlayerHardAttack : MonoBehaviour
     // {
     //     ataqueHardCollider.SetActive(true);
     // }
-
-    public void DeactivatingCollsHardAttack()
-    {
-        ataqueHardCollider.SetActive(false);
-    }
 
     #endregion
 }
