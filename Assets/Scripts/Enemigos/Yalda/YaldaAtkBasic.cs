@@ -23,6 +23,7 @@ public class YaldaAtkBasic : MonoBehaviour
 		yaldaMov.StopChase();
 		yaldaMov.attacking = true;
 		yaldaMov.stare = false;
+
 		anim.ResetTrigger("BasicAttack");
 		anim.ResetTrigger("SpecialAttack");
 		anim.ResetTrigger("Teleport");
